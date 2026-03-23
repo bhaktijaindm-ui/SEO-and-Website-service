@@ -1221,25 +1221,28 @@ body.user-website .btn-primary {
 /* Floating Service Switcher */
 .floating-service-btn {
     position: fixed;
-    bottom: 2rem;
-    right: 2rem;
+    bottom: 2.5rem;
+    right: 2.5rem;
     z-index: 9999;
-    padding: 12px 24px;
-    font-size: 0.85rem;
-    font-weight: 800;
+    padding: 10px 24px;
+    font-size: 0.8rem;
+    font-weight: 700;
     color: #fff;
     cursor: pointer;
-    border: 1px solid rgba(255,255,255,0.1);
-    transform: scale(0.95);
+    background: rgba(13, 17, 23, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 99px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     transition: var(--transition-mid);
-    border-radius: 8px;
+    letter-spacing: 0.5px;
 }
 
 .floating-service-btn:hover {
-    transform: scale(1);
-    background: rgba(255,255,255,0.1);
-    border-color: #fff;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    transform: translateY(-5px) scale(1.02);
+    background: var(--indigo-primary);
+    border-color: var(--indigo-primary);
+    box-shadow: 0 15px 40px var(--indigo-glow);
 }
 
 @media (max-width: 992px) { 
