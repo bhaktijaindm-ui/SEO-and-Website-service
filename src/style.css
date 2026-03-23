@@ -228,6 +228,76 @@ section {
     .pricing-card { padding: 2.5rem 2rem; }
 }
 
+/* --- Services Detail Section --- */
+.services-detail {
+    padding-bottom: 120px;
+}
+
+.services-large-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.service-large-card {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 3rem;
+    padding: 4rem;
+    align-items: flex-start;
+    transition: var(--transition-mid);
+}
+
+.service-large-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--indigo-primary);
+}
+
+.service-icon {
+    font-size: 2.8rem;
+    color: var(--indigo-primary);
+}
+
+.service-info h3 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.service-info p {
+    font-size: 1.1rem;
+    max-width: 850px;
+    margin-bottom: 2rem;
+}
+
+.service-info ul {
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.service-info ul li {
+    font-weight: 700;
+    color: #fff;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.service-info ul li i {
+    color: var(--indigo-primary);
+}
+
+@media (max-width: 992px) {
+    .service-large-card {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 3rem 2rem;
+        text-align: left;
+    }
+}
+
 /* --- Hero Section --- */
 .hero {
     min-height: 100vh;
