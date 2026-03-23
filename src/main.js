@@ -1,17 +1,19 @@
 // --- NAVIGATION & MOBILE MENU ---
 const nav = document.querySelector('.sticky-nav');
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const navLinks = document.querySelector('.nav-links');
+const navLinksGroup = document.querySelector('.nav-links');
 
-window.addEventListener('scroll', () => {
-    if (nav && window.scrollY > 50) {
-        nav.classList.add('scrolled');
-    } else if (nav) {
-        nav.classList.remove('scrolled');
-    }
-});
+if (nav) {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
+}
 
-if (mobileMenuBtn && navLinks) {
+if (mobileMenuBtn && navLinksGroup) {
     mobileMenuBtn.addEventListener('click', () => {
         nav.classList.toggle('mobile-active');
         const icon = mobileMenuBtn.querySelector('i');
@@ -21,6 +23,20 @@ if (mobileMenuBtn && navLinks) {
         }
     });
 }
+
+// Ensure mobile menu resets on window resize
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 992) {
+        if (nav && nav.classList.contains('mobile-active')) {
+            nav.classList.remove('mobile-active');
+            const icon = mobileMenuBtn ? mobileMenuBtn.querySelector('i') : null;
+            if (icon) {
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            }
+        }
+    }
+});
 
 // --- DYNAMIC SERVICE SYSTEM (DASHBOARDS) ---
 
@@ -133,20 +149,12 @@ const injectServiceModal = () => {
                     y: 30,
                     opacity: 0,
                     duration: 0.8,
+                    stagger: 0.15,
                     ease: 'power3.out'
                 });
             }
         }
     }, 10);
-};
-
-/**
- * Switch Service (Manual Toggle)
- */
-window.toggleService = () => {
-    const current = localStorage.getItem('selectedService') || 'seo';
-    const next = current === 'seo' ? 'website' : 'seo';
-    window.selectService(next);
 };
 
 // --- GSAP ANIMATIONS ---
@@ -191,55 +199,42 @@ function initAnimations() {
     }
 }
 
-// --- FAQ SYSTEM ---
-const initFAQ = () => {
-    const questions = document.querySelectorAll('.faq-question');
-    questions.forEach(q => {
-        q.addEventListener('click', () => {
-            const item = q.parentElement;
-            const isActive = item.classList.contains('active');
-            
-            // Close all other items for a clean accordion effect
-            document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
-            
-            if (isActive) {
-                item.classList.remove('active');
-            } else {
-                item.classList.add('active');
-            }
+// --- FAQ ACCORDION ---
+function initFAQ() {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const item = question.parentElement;
+            item.classList.toggle('active');
         });
     });
-};
+}
 
-// --- INITIALIZATION ---
-window.addEventListener('DOMContentLoaded', () => {
-    // 1. Check URL Parameters for Deep Linking (e.g. ?service=website)
-    const urlParams = new URLSearchParams(window.location.search);
-    const serviceParam = urlParams.get('service');
-    
-    if (serviceParam === 'seo' || serviceParam === 'website') {
-        localStorage.setItem('selectedService', serviceParam);
-        window.applyServiceGlobal(serviceParam);
-        return;
-    }
-
-    // 2. Check localStorage
+/**
+ * Core Initialization
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Check if we already have a preference
     const savedService = localStorage.getItem('selectedService');
     
     if (savedService) {
         window.applyServiceGlobal(savedService);
     } else {
-        // 3. Show Modal if no selection exists on ANY page
         injectServiceModal();
     }
-    
-    // 4. Initialize FAQ
+
+    // 2. Initialize FAQ logic
     initFAQ();
+
+    // 3. Setup GSAP
+    initAnimations();
 });
 
-// Refresh ScrollTrigger on resize
-window.addEventListener('resize', () => {
-    if (typeof ScrollTrigger !== 'undefined') {
-        ScrollTrigger.refresh();
-    }
-});
+/**
+ * Re-export manual toggle
+ */
+window.toggleService = () => {
+    const current = localStorage.getItem('selectedService') || 'seo';
+    const next = current === 'seo' ? 'website' : 'seo';
+    window.selectService(next);
+};

@@ -145,8 +145,87 @@ section {
 }
 
 .mobile-menu-btn {
-    display: none;
+    display: none !important;
     cursor: pointer;
+}
+
+/* --- Pricing Section --- */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.pricing-card {
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: var(--transition-mid);
+    position: relative;
+    z-index: 1;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--indigo-primary);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.pricing-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.price {
+    font-size: 3rem;
+    font-weight: 900;
+    margin: 1.5rem 0 2rem;
+    color: #fff;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.price span {
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.features {
+    margin-bottom: 3rem;
+    flex-grow: 1;
+}
+
+.features li {
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+.features li i {
+    color: var(--indigo-primary);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 1100px) {
+    .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+        margin: 4rem auto 0;
+    }
+    .pricing-card { padding: 2.5rem 2rem; }
 }
 
 /* --- Hero Section --- */
