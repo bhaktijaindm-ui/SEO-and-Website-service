@@ -226,9 +226,61 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. Initialize FAQ logic
     initFAQ();
 
-    // 3. Setup GSAP
+    // 3. Initialize Blog Filters (if on blog page)
+    initBlogFilters();
+
+    // 4. Setup GSAP
     initAnimations();
 });
+
+/**
+ * Blog Filtering & Search Engine
+ */
+function initBlogFilters() {
+    const searchInput = document.querySelector('.search-input-group input');
+    const tags = document.querySelectorAll('.tag');
+    const posts = document.querySelectorAll('.blog-card');
+
+    if (!searchInput || !posts.length) return;
+
+    function filterPosts() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const activeTag = document.querySelector('.tag.active').textContent.toLowerCase();
+
+        posts.forEach(post => {
+            const title = post.querySelector('h3').textContent.toLowerCase();
+            const content = post.querySelector('p').textContent.toLowerCase();
+            const textMatch = title.includes(searchTerm) || content.includes(searchTerm);
+            
+            // Basic tag logic
+            const tagMatch = activeTag === 'all insights' || 
+                             title.includes(activeTag) || 
+                             content.includes(activeTag) ||
+                             searchTerm.includes(activeTag);
+
+            if (textMatch && tagMatch) {
+                if (post.style.display === 'none') {
+                    post.style.display = 'flex';
+                    gsap.fromTo(post, {opacity: 0, y: 20}, {opacity: 1, y: 0, duration: 0.4});
+                }
+            } else {
+                post.style.display = 'none';
+            }
+        });
+    }
+
+    // Input Search listener
+    searchInput.addEventListener('input', filterPosts);
+
+    // Tag click listener
+    tags.forEach(tag => {
+        tag.addEventListener('click', () => {
+            tags.forEach(t => t.classList.remove('active'));
+            tag.classList.add('active');
+            filterPosts();
+        });
+    });
+}
 
 /**
  * Re-export manual toggle
