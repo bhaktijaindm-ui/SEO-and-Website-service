@@ -1687,8 +1687,10 @@ body.user-seo .service-seo-content { display: block !important; }
     height: 100%;
     z-index: 100000;
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* Start from top to prevent cutoff */
     justify-content: center;
+    padding: 8vh 0; /* Huge vertical air */
+    overflow-y: auto; /* Allow scroll if very small screen */
     opacity: 0;
     visibility: hidden;
     transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
