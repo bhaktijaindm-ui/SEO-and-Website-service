@@ -63,12 +63,18 @@ window.applyServiceGlobal = (service) => {
         if (logoText) logoText.textContent = 'WEB';
         if (footerLogoText) footerLogoText.textContent = 'WEB';
         if (giantTextLogo) giantTextLogo.textContent = 'WEB DESIGN';
-        if (switchBtn) switchBtn.innerHTML = 'Move to SEO Dashboard';
+        if (switchBtn) {
+            const span = switchBtn.querySelector('span');
+            if (span) span.innerHTML = 'Move To<br>SEO';
+        }
     } else {
         if (logoText) logoText.textContent = 'SEO';
         if (footerLogoText) footerLogoText.textContent = 'SEO';
         if (giantTextLogo) giantTextLogo.textContent = 'SEO EXPERT';
-        if (switchBtn) switchBtn.innerHTML = 'Move to Website Dashboard';
+        if (switchBtn) {
+            const span = switchBtn.querySelector('span');
+            if (span) span.innerHTML = 'Move To<br>WEB';
+        }
     }
 
     // 4. Reset & Refresh Animations for the newly visible content

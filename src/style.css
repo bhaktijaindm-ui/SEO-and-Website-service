@@ -1218,31 +1218,49 @@ body.user-website .btn-primary {
     .cta-box h2 { font-size: 2.2rem; }
 }
 
-/* Floating Service Switcher */
+/* Floating Service Switcher - Square Command Box */
 .floating-service-btn {
     position: fixed;
     bottom: 2.5rem;
     right: 2.5rem;
-    z-index: 9999;
-    padding: 10px 24px;
-    font-size: 0.8rem;
-    font-weight: 700;
+    z-index: 10000;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.2rem;
+    text-align: center;
+    line-height: 1.2;
+    font-size: 0.75rem;
+    font-weight: 800;
     color: #fff;
     cursor: pointer;
-    background: rgba(13, 17, 23, 0.8);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 99px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    transition: var(--transition-mid);
+    background: rgba(13, 17, 23, 0.6);
+    backdrop-filter: blur(25px) saturate(200%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
+.floating-service-btn i {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    background: linear-gradient(135deg, var(--indigo-primary), var(--cyan-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .floating-service-btn:hover {
-    transform: translateY(-5px) scale(1.02);
-    background: var(--indigo-primary);
+    transform: translateY(-8px) scale(1.05);
     border-color: var(--indigo-primary);
-    box-shadow: 0 15px 40px var(--indigo-glow);
+    background: rgba(99, 102, 241, 0.1);
+    box-shadow: 0 25px 50px var(--indigo-glow);
 }
 
 @media (max-width: 992px) { 
