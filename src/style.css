@@ -77,8 +77,9 @@ span.badge {
 }
 
 section {
-    padding: 120px 0;
+    padding: 150px 0;
     position: relative;
+    scroll-margin-top: 100px;
 }
 
 .text-center { text-align: center; }
@@ -461,7 +462,7 @@ section {
 .btn-outline:hover { background: rgba(255,255,255,0.05); border-color: #fff; }
 
 /* --- About & Journey (Corrected Overlap) --- */
-.page-main { padding-top: 20px; }
+.page-main { padding-top: 140px; }
 
 .experience-flow-v2 {
     background: radial-gradient(circle at center, rgba(99, 102, 241, 0.05) 0%, transparent 70%);
@@ -512,7 +513,7 @@ section {
 }
 
 /* --- Blog Search & Filters --- */
-.blog-search-section { padding: 40px 0 70px; }
+.blog-search-section { padding: 140px 0 70px; }
 .search-wrapper { 
     padding: 4rem 3.5rem; 
     border-radius: 8px;
@@ -616,7 +617,7 @@ section {
 
 /* --- Blog Content Grid (3 Columns) --- */
 .blog-list { 
-    padding: 40px 0 120px; 
+    padding: 140px 0 120px; 
 }
 
 .blog-grid-modern {
@@ -865,7 +866,7 @@ section {
 @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
 /* --- Case Study Grid --- */
-.case-studies-list { padding: 40px 0 100px; }
+.case-studies-list { padding: 140px 0 100px; }
 .case-study-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1382,7 +1383,7 @@ body.user-website .btn-primary {
 
 /* --- Experience Flow Chart (Workflow) --- */
 .workflow-section {
-    padding: 100px 0 140px;
+    padding: 140px 0;
     background: radial-gradient(circle at center, rgba(99, 102, 241, 0.05) 0%, transparent 70%);
 }
 
@@ -1548,5 +1549,5 @@ body.user-website .btn-primary {
 .a-stat strong { font-size: 2.5rem; font-weight: 900; line-height: 1; }
 .a-stat span { font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-top: 0.5rem; }
 
-.about-mission { padding: 100px 0; }
+.about-mission { padding: 140px 0; }
 .page-hero { padding-top: 180px; }
