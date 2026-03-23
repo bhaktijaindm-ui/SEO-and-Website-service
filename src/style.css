@@ -636,3 +636,94 @@ body.user-website .btn-primary {
     .faq-answer { padding: 0 1.5rem; }
 }
 
+
+/* --- Contact Form & Input Styling --- */
+.contact-narrow {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-form-wrapper {
+    padding: 3.5rem;
+    margin-top: 3rem;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: left;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    padding: 1rem 1.2rem;
+    border-radius: 12px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition-fast);
+}
+
+.form-group input::placeholder {
+    color: rgba(255,255,255,0.2);
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--indigo-primary);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 0 15px var(--indigo-glow);
+}
+
+.textarea-group {
+    margin-bottom: 2rem;
+}
+
+.btn-full {
+    width: 100%;
+    justify-content: center;
+}
+
+.contact-alt-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.info-card {
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+}
+
+.info-card i {
+    font-size: 2rem;
+    color: var(--indigo-primary);
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .form-grid, .contact-alt-info { grid-template-columns: 1fr; }
+    .contact-form-wrapper { padding: 2rem 1.5rem; }
+}
