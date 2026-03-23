@@ -192,8 +192,8 @@ function initAnimations() {
                 end: 'bottom bottom',
                 scrub: 1
             },
-            opacity: 0.8,
-            x: -30,
+            opacity: 1,
+            x: -20,
             ease: 'none'
         });
     }
