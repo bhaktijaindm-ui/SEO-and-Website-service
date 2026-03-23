@@ -453,8 +453,20 @@ section {
 .footer { background: #05070A; padding: 100px 0 0; }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 5rem; padding-bottom: 80px; }
 .footer-giant-wrapper { padding: 4rem 0; border-top: 1px solid var(--glass-border); overflow: hidden; }
-.giant-text { font-size: 15vw; font-weight: 900; text-align: center; color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.1); opacity: 0; transform: translateY(50px); }
-.giant-text.active { opacity: 1; transform: translateY(0); transition: 1s cubic-bezier(0.16, 1, 0.3, 1); }
+.giant-text { 
+    font-size: 15vw; 
+    font-weight: 900; 
+    text-align: center; 
+    color: transparent; 
+    -webkit-text-stroke: 1px rgba(255,255,255,0.2); 
+    opacity: 0.3; 
+    transform: translateY(50px); 
+    transition: opacity 1s, transform 1s;
+}
+.giant-text.active { 
+    opacity: 0.8; 
+    transform: translateY(0); 
+}
 
 /* --- Responsive --- */
 @media (max-width: 1200px) {
