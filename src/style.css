@@ -1414,6 +1414,14 @@ body.user-website .btn-primary {
     margin-bottom: 1rem;
 }
 
+/* --- Dashboard Interaction --- */
+.service-website-content { display: none !important; }
+body.user-website .service-website-content { display: block !important; }
+body.user-website .service-seo-content { display: none !important; }
+body.user-seo .service-website-content { display: none !important; }
+body.user-seo .service-seo-content { display: block !important; }
+.service-seo-content { display: block; } /* Initial Default */
+
 
 /* --- Experience Flow Chart (Workflow) --- */
 .workflow-section {
