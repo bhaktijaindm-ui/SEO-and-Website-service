@@ -458,13 +458,13 @@ section {
     font-weight: 900; 
     text-align: center; 
     color: transparent; 
-    -webkit-text-stroke: 1px rgba(255,255,255,0.2); 
-    opacity: 0.3; 
-    transform: translateY(50px); 
-    transition: opacity 1s, transform 1s;
+    -webkit-text-stroke: 1.5px rgba(255,255,255,0.4); 
+    opacity: 0.6; 
+    transform: translateY(30px); 
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .giant-text.active { 
-    opacity: 0.8; 
+    opacity: 1; 
     transform: translateY(0); 
 }
 
