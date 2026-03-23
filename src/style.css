@@ -130,16 +130,23 @@ section {
 .nav-links {
     display: flex;
     gap: 2.5rem;
+    padding: 0 1rem;
 }
 
 .nav-links a {
-    font-size: 0.95rem;
-    font-weight: 700;
+    font-size: 0.9rem;
+    font-weight: 600;
     color: var(--text-muted);
+    transition: var(--transition-fast);
 }
 
 .nav-links a:hover, .nav-links a.active {
     color: #fff;
+}
+
+.mobile-menu-btn {
+    display: none;
+    cursor: pointer;
 }
 
 /* --- Hero Section --- */
