@@ -448,7 +448,9 @@ section {
 .btn-blue-glow { background: #3b82f6; box-shadow: 0 0 15px rgba(59, 130, 246, 0.4); }
 .btn-blue-glow:hover { box-shadow: 0 0 30px rgba(59, 130, 246, 0.6); }
 
-.btn-large { padding: 18px 44px; font-size: 1.1rem; border-radius: 8px; }
+.btn-large { padding: 18px 44px; font-size: 1.15rem; border-radius: 8px; }
+.btn-glow { box-shadow: 0 10px 30px var(--indigo-glow); }
+.btn-glow:hover { box-shadow: 0 15px 45px var(--indigo-glow); }
 
 .btn-outline {
     background: transparent;
@@ -1042,11 +1044,48 @@ body.user-website .btn-primary {
     background: var(--purple-accent);
 }
 
+/* --- CTA Section --- */
+.contact-cta { padding: 120px 0 160px; }
+.cta-box {
+    padding: 6rem 4rem;
+    border: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.15), transparent 60%);
+}
+
+.cta-box h2 {
+    font-size: clamp(2.2rem, 6vw, 4.2rem);
+    margin-bottom: 1.5rem;
+    background: linear-gradient(90deg, #fff, var(--indigo-primary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.1;
+}
+
+.cta-box p {
+    font-size: 1.2rem;
+    max-width: 650px;
+    margin: 0 auto 3rem;
+    color: var(--text-muted);
+}
+
+.cta-box .btn-large {
+    padding: 20px 50px;
+    font-size: 1.15rem;
+}
+
+@media (max-width: 768px) {
+    .cta-box { padding: 4rem 2rem; }
+    .cta-box h2 { font-size: 2.2rem; }
+}
+
 /* Floating Service Switcher */
 .floating-service-btn {
     position: fixed;
     bottom: 2rem;
-    left: 2rem;
+    right: 2rem;
     z-index: 9999;
     padding: 12px 24px;
     font-size: 0.85rem;
@@ -1056,12 +1095,14 @@ body.user-website .btn-primary {
     border: 1px solid rgba(255,255,255,0.1);
     transform: scale(0.95);
     transition: var(--transition-mid);
+    border-radius: 8px;
 }
 
 .floating-service-btn:hover {
     transform: scale(1);
     background: rgba(255,255,255,0.1);
     border-color: #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
 @media (max-width: 992px) { 
