@@ -13,7 +13,7 @@ window.addEventListener('scroll', () => {
 
 if (mobileMenuBtn && navLinks) {
     mobileMenuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
+        nav.classList.toggle('mobile-active');
         const icon = mobileMenuBtn.querySelector('i');
         if (icon) {
             icon.classList.toggle('fa-bars');
@@ -191,6 +191,26 @@ function initAnimations() {
     }
 }
 
+// --- FAQ SYSTEM ---
+const initFAQ = () => {
+    const questions = document.querySelectorAll('.faq-question');
+    questions.forEach(q => {
+        q.addEventListener('click', () => {
+            const item = q.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            // Close all other items for a clean accordion effect
+            document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
+            
+            if (isActive) {
+                item.classList.remove('active');
+            } else {
+                item.classList.add('active');
+            }
+        });
+    });
+};
+
 // --- INITIALIZATION ---
 window.addEventListener('DOMContentLoaded', () => {
     // 1. Check URL Parameters for Deep Linking (e.g. ?service=website)
@@ -212,6 +232,9 @@ window.addEventListener('DOMContentLoaded', () => {
         // 3. Show Modal if no selection exists on ANY page
         injectServiceModal();
     }
+    
+    // 4. Initialize FAQ
+    initFAQ();
 });
 
 // Refresh ScrollTrigger on resize
