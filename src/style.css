@@ -1584,4 +1584,70 @@ body.user-website .btn-primary {
 .a-stat span { font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-top: 0.5rem; }
 
 .about-mission { padding: 140px 0; }
-.page-hero { padding-top: 180px; }
+
+/* --- SEO Layers Grid --- */
+.seo-layers-section { background: linear-gradient(to bottom, transparent, rgba(99, 102, 241, 0.03)); padding: 140px 0; }
+.layers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.layer-card {
+    padding: 3rem 2rem;
+    text-align: center;
+    transition: var(--transition-mid);
+    position: relative;
+    overflow: hidden;
+    background: rgba(15, 23, 42, 0.4);
+    border: 1px solid var(--glass-border);
+}
+
+.layer-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--indigo-primary);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+.layer-icon {
+    font-size: 2.5rem;
+    color: var(--indigo-primary);
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.layer-num {
+    position: absolute;
+    top: -15px;
+    right: -20px;
+    width: 28px;
+    height: 28px;
+    background: var(--bg-deep);
+    border: 1px solid var(--glass-border);
+    border-radius: 50%;
+    font-size: 0.75rem;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+}
+
+.layer-card:hover .layer-num {
+    border-color: var(--indigo-primary);
+    color: #fff;
+    background: var(--indigo-primary);
+}
+
+.layer-card h3 { font-size: 1.4rem; margin-bottom: 1rem; font-weight: 800; color: #fff; }
+.layer-card p { font-size: 0.9rem; line-height: 1.6; color: var(--text-muted); }
+
+@media (max-width: 1200px) {
+    .layers-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .layers-grid { grid-template-columns: 1fr; }
+}
