@@ -140,16 +140,36 @@ const injectServiceModal = () => {
     document.body.insertAdjacentHTML('beforeend', modalHTML);
     const modal = document.getElementById('serviceModal');
     
+    // Add Mouse Glow Logic
+    modal.addEventListener('mousemove', (e) => {
+        const cards = modal.querySelectorAll('.option-card');
+        cards.forEach(card => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--x', `${x}px`);
+            card.style.setProperty('--y', `${y}px`);
+        });
+    });
+
     // Force a small delay to ensure DOM is ready, then add class
     setTimeout(() => {
         if (modal) {
             modal.classList.add('active');
             if (typeof gsap !== 'undefined') {
                 gsap.from(modal.querySelector('.modal-content'), {
-                    y: 30,
+                    scale: 0.9,
+                    y: 40,
                     opacity: 0,
-                    duration: 0.8,
-                    stagger: 0.15,
+                    duration: 1.2,
+                    ease: 'expo.out'
+                });
+                gsap.from(modal.querySelectorAll('.option-card'), {
+                    y: 60,
+                    opacity: 0,
+                    duration: 1,
+                    stagger: 0.2,
+                    delay: 0.3,
                     ease: 'power3.out'
                 });
             }
@@ -214,13 +234,17 @@ function initFAQ() {
  * Core Initialization
  */
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Check if we already have a preference
+    // 1. Force Selection on Index Page Reload
+    const isHomePage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('/');
     const savedService = localStorage.getItem('selectedService');
     
-    if (savedService) {
-        window.applyServiceGlobal(savedService);
-    } else {
+    if (isHomePage) {
+        // Always show modal on home page as requested
         injectServiceModal();
+        if (savedService) applyServiceGlobal(savedService); // Apply default but keep modal visible
+    } else {
+        // For subpages, use saved preference or default to SEO
+        applyServiceGlobal(savedService || 'seo');
     }
 
     // 2. Initialize FAQ logic
