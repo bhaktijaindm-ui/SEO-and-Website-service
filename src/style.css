@@ -497,6 +497,118 @@ section {
     z-index: 10;
 }
 
+/* --- Global Page Headers --- */
+.page-hero {
+    padding: 180px 0 80px;
+    background: linear-gradient(to bottom, rgba(6, 182, 212, 0.05), transparent);
+    position: relative;
+}
+
+.page-hero h1 {
+    margin-bottom: 1.5rem;
+}
+
+/* --- Blog Search & Filters --- */
+.blog-search-section { padding: 40px 0 60px; }
+.search-wrapper { 
+    padding: 3rem; 
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    position: relative;
+    z-index: 10;
+}
+
+.search-input-group {
+    position: relative;
+    width: 100%;
+}
+
+.search-input-group i {
+    position: absolute;
+    left: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--indigo-primary);
+    font-size: 1.2rem;
+}
+
+.search-input-group input {
+    width: 100%;
+    padding: 1.2rem 1.2rem 1.2rem 60px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    color: #fff;
+    font-size: 1.1rem;
+    transition: var(--transition-mid);
+}
+
+.search-input-group input:focus {
+    border-color: var(--indigo-primary);
+    background: rgba(255,255,255,0.06);
+    outline: none;
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+}
+
+.filter-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.filter-label {
+    font-weight: 700;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    min-width: 100px;
+}
+
+.filter-tags {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.tag {
+    padding: 8px 18px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: 99px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.tag:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: var(--indigo-primary);
+    color: #fff;
+}
+
+.tag.active {
+    background: var(--indigo-primary);
+    border-color: var(--indigo-primary);
+    color: #fff;
+    box-shadow: 0 5px 15px var(--indigo-glow);
+}
+
+@media (max-width: 768px) {
+    .search-wrapper { padding: 2rem; }
+    .filter-group { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+}
+
 .node-meta {
     width: 44%;
     padding: 0 60px;
