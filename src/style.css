@@ -373,74 +373,148 @@ section {
 }
 
 /* --- Hero Section --- */
+/* --- Hero Section Improvements --- */
 .hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding-top: 160px;
+    padding-top: 140px;
     overflow: hidden;
+    position: relative;
 }
 
 .hero-grid {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 4rem;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 6rem;
     align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+.hero h1 {
+    font-size: clamp(3.5rem, 7vw, 5.5rem);
+    line-height: 1.05;
+    margin-bottom: 2rem;
+    font-weight: 900;
 }
 
 .hero h1 span {
-    color: var(--indigo-primary);
-    text-shadow: 0 0 30px var(--indigo-glow);
+    display: inline-block;
+    background: linear-gradient(135deg, var(--indigo-primary), var(--cyan-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 20px var(--indigo-glow));
 }
 
-.hero p {
-    font-size: 1.3rem;
+.hero-sub {
+    font-size: 1.25rem;
+    color: var(--text-main);
     max-width: 600px;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
 }
 
-.hero-bg-spheres {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
+.hero-desc {
+    opacity: 0.7;
+    font-size: 1.05rem;
+    max-width: 550px;
+    margin-bottom: 3.5rem;
 }
 
-.sphere {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.4;
-    animation: floatContinuous 20s infinite alternate;
+.hero-actions {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
 }
 
-.sphere-1 { width: 500px; height: 500px; background: var(--primary-glow); top: -10%; right: -5%; }
-.sphere-2 { width: 400px; height: 400px; background: var(--secondary-glow); bottom: 10%; left: -5%; }
-.sphere-3 { width: 250px; height: 250px; background: var(--secondary-glow); top: 30%; left: 30%; }
-
-@keyframes floatContinuous {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(60px, 40px) scale(1.1); }
-}
-
-/* Dashboard Stack in Hero */
+/* Dashboard Stack & Neon Cards */
 .dashboard-stack-modern {
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    align-items: flex-end;
+    gap: 2.5rem;
+    padding-left: 50px;
 }
 
 .modern-dash-card {
-    width: 340px;
-    padding: 2rem;
+    width: 380px;
+    padding: 2.5rem;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+}
+
+.modern-dash-card.neon-cyan { border-left: 4px solid var(--secondary-core); }
+.modern-dash-card.neon-blue { border-left: 4px solid var(--primary-core); }
+
+.modern-dash-card:hover {
+    transform: translateX(-10px) translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 .metric-val {
-    font-size: 2.8rem;
+    font-size: 3.5rem;
     font-weight: 900;
     color: #fff;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.floating {
+    animation: floatContinuous 6s ease-in-out infinite alternate;
+}
+
+@keyframes floatContinuous {
+    from { transform: translateY(0); }
+    to { transform: translateY(-20px); }
+}
+
+.hero-stats-strip {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 6rem;
+    padding: 2.5rem 4rem;
+    background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01), rgba(255,255,255,0.03));
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    backdrop-filter: blur(10px);
+}
+
+.strip-item strong {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #fff;
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.strip-item p {
+    font-size: 0.85rem !important;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    margin: 0 !important;
+}
+
+@media (max-width: 1200px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 5rem; text-align: center; }
+    .hero-text { display: flex; flex-direction: column; align-items: center; }
+    .hero-actions { justify-content: center; }
+    .dashboard-stack-modern { padding-left: 0; align-items: center; }
+    .modern-dash-card { width: 100%; max-width: 450px; }
+}
+
+@media (max-width: 768px) {
+    .hero-stats-strip { flex-direction: column; gap: 2rem; padding: 2rem; }
+    .hero h1 { font-size: 2.8rem; }
 }
 
 .mini-graph-svg svg { stroke-linecap: round; }
