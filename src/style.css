@@ -1554,12 +1554,17 @@ body.user-website .btn-primary {
 }
 
 /* --- Dashboard Interaction --- */
-.service-website-content { display: none !important; }
-body.user-website .service-website-content { display: block !important; }
-body.user-website .service-seo-content { display: none !important; }
-body.user-seo .service-website-content { display: none !important; }
-body.user-seo .service-seo-content { display: block !important; }
-.service-seo-content { display: block; } /* Initial Default */
+/* Core visibility logic: Only hide inactive service content. 
+   Never force 'display: block' as it breaks Grids and Flexboxes. */
+.service-website-content,
+body.user-seo .service-website-content,
+body.user-website .service-seo-content {
+    display: none !important;
+}
+
+body.user-website .service-website-content {
+    display: revert !important;
+}
 
 
 /* --- Experience Flow Chart (Workflow) --- */
