@@ -91,6 +91,18 @@ window.selectService = (service) => {
     localStorage.setItem('selectedService', service);
     const modal = document.getElementById('serviceModal');
     
+    // Determine the base URL for the selected service
+    const baseUrl = service === 'website' ? '/web-design-service' : '/seo-service';
+    
+    // Detect current page suffix for seamless transition
+    const currentPath = window.location.pathname;
+    let pageSuffix = currentPath.split('/').pop();
+    if (pageSuffix === 'seo-service' || pageSuffix === 'web-design-service' || !pageSuffix || pageSuffix === 'index.html') {
+        pageSuffix = '';
+    }
+
+    const finalUrl = pageSuffix ? `${baseUrl}/${pageSuffix}` : baseUrl;
+
     // Check if gsap is available
     if (typeof gsap !== 'undefined' && modal) {
         gsap.to(modal, {
@@ -100,6 +112,9 @@ window.selectService = (service) => {
                 modal.classList.remove('active');
                 modal.remove(); // Clean up from DOM
                 window.applyServiceGlobal(service);
+                if (!window.location.pathname.startsWith(baseUrl)) {
+                    window.location.assign(finalUrl);
+                }
             }
         });
     } else {
@@ -108,6 +123,9 @@ window.selectService = (service) => {
             modal.remove();
         }
         window.applyServiceGlobal(service);
+        if (!window.location.pathname.startsWith(baseUrl)) {
+            window.location.assign(finalUrl);
+        }
     }
 };
 
@@ -240,27 +258,60 @@ function initFAQ() {
  * Core Initialization
  */
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Force Selection on Index Page Reload
-    const isHomePage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('/');
-    const savedService = localStorage.getItem('selectedService');
-    
-    if (isHomePage) {
-        // Always show modal on home page as requested
-        injectServiceModal();
-        if (savedService) applyServiceGlobal(savedService); // Apply default but keep modal visible
+    // 1. Detect service from URL
+    const pathname = window.location.pathname;
+    let currentService = 'seo'; // Default
+
+    if (pathname.includes('/web-design-service')) {
+        currentService = 'website';
+    } else if (pathname.includes('/seo-service')) {
+        currentService = 'seo';
     } else {
-        // For subpages, use saved preference or default to SEO
-        applyServiceGlobal(savedService || 'seo');
+        currentService = localStorage.getItem('selectedService') || 'seo';
     }
 
-    // 2. Initialize FAQ logic
+    // 2. Force Selection on Index Page Reload
+    const isRoot = pathname === '/' || pathname === 'index.html';
+    
+    if (isRoot) {
+        injectServiceModal();
+        if (currentService) applyServiceGlobal(currentService);
+    } else {
+        applyServiceGlobal(currentService);
+    }
+
+    // 3. Update all links to be dashboard aware
+    const prefix = currentService === 'website' ? '/web-design-service' : '/seo-service';
+    const allLinks = document.querySelectorAll('a[href]:not([href^="#"]):not([href^="http"]):not(.logo-mini):not(.logo)');
+    
+    allLinks.forEach(link => {
+        let href = link.getAttribute('href');
+        if (href === 'index.html' || href === '/') {
+            link.setAttribute('href', prefix);
+            return;
+        }
+        
+        // Map common pages to their SEO/Web aliases
+        let page = href.replace('.html', '');
+        if (page === 'case-studies') page = 'casestudies';
+        if (page === 'about') page = 'aboutus';
+        
+        link.setAttribute('href', `${prefix}/${page}`);
+    });
+
+    // 4. Initialize FAQ logic
     initFAQ();
 
-    // 3. Initialize Blog Filters (if on blog page)
+    // 5. Initialize Blog Filters (if on blog page)
     initBlogFilters();
 
-    // 4. Setup GSAP
-    initAnimations();
+    // 6. Setup GSAP (Deferred for better 1s load)
+    requestAnimationFrame(() => {
+        initAnimations();
+        if (typeof ScrollTrigger !== 'undefined') {
+            ScrollTrigger.refresh();
+        }
+    });
 });
 
 /**

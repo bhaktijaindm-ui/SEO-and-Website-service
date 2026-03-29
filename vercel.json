@@ -1,4 +1,20 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/seo-service", "destination": "/index.html" },
+    { "source": "/seo-service/services", "destination": "/services.html" },
+    { "source": "/seo-service/casestudies", "destination": "/case-studies.html" },
+    { "source": "/seo-service/aboutus", "destination": "/about.html" },
+    { "source": "/seo-service/pricing", "destination": "/pricing.html" },
+    { "source": "/seo-service/blog", "destination": "/blog.html" },
+    { "source": "/seo-service/contact", "destination": "/contact.html" },
+    { "source": "/web-design-service", "destination": "/index.html" },
+    { "source": "/web-design-service/services", "destination": "/services.html" },
+    { "source": "/web-design-service/casestudies", "destination": "/case-studies.html" },
+    { "source": "/web-design-service/aboutus", "destination": "/about.html" },
+    { "source": "/web-design-service/pricing", "destination": "/pricing.html" },
+    { "source": "/web-design-service/blog", "destination": "/blog.html" },
+    { "source": "/web-design-service/contact", "destination": "/contact.html" }
+  ]
 }
