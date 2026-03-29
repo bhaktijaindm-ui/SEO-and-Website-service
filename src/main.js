@@ -60,9 +60,9 @@ window.applyServiceGlobal = (service) => {
     const switchBtn = document.getElementById('serviceSwitcher');
 
     if (service === 'website') {
-        if (logoText) logoText.textContent = 'WEB';
-        if (footerLogoText) footerLogoText.textContent = 'WEB';
-        if (giantTextLogo) giantTextLogo.textContent = 'WEB DESIGN';
+        if (logoText) logoText.textContent = 'Webdesign';
+        if (footerLogoText) footerLogoText.textContent = 'Webdesign';
+        if (giantTextLogo) giantTextLogo.textContent = 'WEBDESIGN EXPERT';
         if (switchBtn) {
             const span = switchBtn.querySelector('span');
             if (span) span.innerHTML = 'Move To<br>SEO';
