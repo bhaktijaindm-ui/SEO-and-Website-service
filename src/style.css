@@ -433,10 +433,11 @@ section {
 }
 
 .hero h1 {
-    font-size: clamp(3.5rem, 7vw, 5.5rem);
-    line-height: 1.05;
+    font-size: clamp(2.5rem, 5.5vw, 4.2rem);
+    line-height: 1.1;
     margin-bottom: 2rem;
     font-weight: 900;
+    max-width: 850px;
 }
 
 .hero h1 span {
@@ -1411,19 +1412,18 @@ body.user-website .btn-primary {
     .cta-box h2 { font-size: 2.2rem; }
 }
 
-/* Floating Service Switcher - Square Command Box */
 .floating-service-btn {
     position: fixed;
     bottom: 2.5rem;
     right: 2.5rem;
     z-index: 10000;
-    width: 100px;
-    height: 100px;
+    width: auto;
+    padding: 0.8rem 2rem;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    gap: 12px;
     align-items: center;
     justify-content: center;
-    padding: 1.2rem;
     text-align: center;
     line-height: 1.2;
     font-size: 0.75rem;

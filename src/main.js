@@ -65,7 +65,7 @@ window.applyServiceGlobal = (service) => {
         if (giantTextLogo) giantTextLogo.textContent = 'WEBDESIGN EXPERT';
         if (switchBtn) {
             const span = switchBtn.querySelector('span');
-            if (span) span.innerHTML = 'Move To<br>SEO';
+            if (span) span.innerHTML = 'Move To SEO';
         }
     } else {
         if (logoText) logoText.textContent = 'SEO';
@@ -73,7 +73,7 @@ window.applyServiceGlobal = (service) => {
         if (giantTextLogo) giantTextLogo.textContent = 'SEO EXPERT';
         if (switchBtn) {
             const span = switchBtn.querySelector('span');
-            if (span) span.innerHTML = 'Move To<br>WEB';
+            if (span) span.innerHTML = 'Move To Web';
         }
     }
 
