@@ -91,7 +91,7 @@ span.badge {
 }
 
 section {
-    padding: clamp(80px, 10vh, 150px) 0;
+    padding: clamp(50px, 7vh, 100px) 0;
     position: relative;
     scroll-margin-top: 100px;
 }
@@ -415,7 +415,7 @@ section {
 /* --- Hero Section --- */
 /* --- Hero Section Improvements --- */
 .hero {
-    min-height: 100vh;
+    min-height: 85vh;
     display: flex;
     align-items: center;
     padding-top: clamp(120px, 18vh, 190px);
