@@ -468,8 +468,14 @@ section {
     display: flex;
     gap: 1.5rem;
     align-items: center;
-    flex-direction: row; /* Force one line */
-    flex-wrap: nowrap;
+    flex-wrap: wrap; /* Wrap on mobile */
+}
+
+@media (min-width: 768px) {
+    .hero-actions {
+        flex-wrap: nowrap;
+        flex-direction: row; /* One line in desktop view only */
+    }
 }
 
 /* Dashboard Stack & Neon Cards (Redesign) */
