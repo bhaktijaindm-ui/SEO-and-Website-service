@@ -1668,6 +1668,7 @@ body.user-website .service-website-content {
     height: 100%;
     z-index: 2;
     transition: var(--transition-mid);
+    overflow: visible; /* Ensure step badges are visible */
 }
 
 .workflow-card:hover {
