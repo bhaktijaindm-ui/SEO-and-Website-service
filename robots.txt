@@ -1,3 +1,41 @@
+# Robot.txt for www.seoandwebsiteservice.com
+# Allowing all search engines to crawl all clean dashboard routes
 User-agent: *
 Allow: /
+Allow: /seo-service/
+Allow: /web-design-service/
+
+# Blocking major AI scraping bots that ingest training data (standard best practice)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: Claude-Bot
+Disallow: /
+
+User-agent: ClaudeWeb
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: YouBot
+Disallow: /
+
+User-agent: cohere-ai
+Disallow: /
+
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+# Host & Sitemap
+Host: https://www.seoandwebsiteservice.com
 Sitemap: https://www.seoandwebsiteservice.com/sitemap.xml
