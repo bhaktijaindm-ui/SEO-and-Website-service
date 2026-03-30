@@ -138,7 +138,8 @@ section {
     justify-content: space-between;
     width: 95%;
     max-width: 1100px;
-    padding: 0.8rem 1rem 0.8rem 2.8rem;
+    padding: 0.4rem 0.6rem 0.4rem 2.2rem;
+
     background: rgba(13, 17, 23, 0.6);
     backdrop-filter: blur(35px);
     border-radius: 99px;
@@ -2212,25 +2213,23 @@ img {
 /* --- Logo Styling --- */
 .logo { display: inline-block; vertical-align: middle; }
 .logo img, .logo-mini img {
-    height: 90px;
+    height: 55px;
+
     width: auto;
     object-fit: contain;
     filter: brightness(1.1);
     transition: var(--transition-mid);
 }
 
-@media (max-width: 1200px) {
-    .logo img, .logo-mini img { height: 75px; }
-}
-
 @media (max-width: 768px) {
-    .logo img, .logo-mini img { height: 48px; }
+    .logo img, .logo-mini img { height: 42px; }
     .nav-capsule { 
-        padding: 0.5rem 1rem; 
+        padding: 0.3rem 0.5rem 0.3rem 1rem; 
         min-height: auto !important;
         width: 92%;
     }
 }
+
 
 
 
