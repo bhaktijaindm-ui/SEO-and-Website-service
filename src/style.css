@@ -138,7 +138,8 @@ section {
     justify-content: space-between;
     width: 100%;
     max-width: 1000px;
-    padding: 0.6rem 0.6rem 0.6rem 2.5rem;
+    padding: 0.8rem 0.8rem 0.8rem 2.8rem;
+
     background: rgba(13, 17, 23, 0.6);
     backdrop-filter: blur(30px);
     border-radius: 99px;
@@ -2161,7 +2162,8 @@ img {
 /* --- Logo Styling --- */
 .logo { display: inline-block; vertical-align: middle; }
 .logo img, .logo-mini img {
-    height: 48px;
+    height: 65px;
+
     width: auto;
     object-fit: contain;
     filter: brightness(1.1);
@@ -2171,6 +2173,7 @@ img {
 .logo:hover img, .logo-mini:hover img {
     transform: scale(1.05);
 }
+
 
 /* --- Disclaimer --- */
 .disclaimer-box {
