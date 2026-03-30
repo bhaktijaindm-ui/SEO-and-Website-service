@@ -989,11 +989,13 @@ section {
 .testimonial-marquee { overflow: hidden; position: relative; padding: 2.5rem 0; width: 100vw; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; }
 
 .marquee-track { 
-    display: flex; 
+    display: flex !important; 
+    flex-wrap: nowrap !important;
     gap: 3.5rem; 
     width: max-content; 
     animation: marquee 40s linear infinite; 
     cursor: grab;
+    will-change: transform;
 }
 
 .marquee-track:active {
@@ -1011,16 +1013,20 @@ section {
     overflow: hidden;
     width: 100%;
     position: relative;
-    padding: 3rem 0;
+    padding: 2rem 0;
+    margin-top: 2rem;
     /* Premium Fade Edge Effect */
-    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
 .case-study-grid.marquee-track, 
 .blog-grid-modern.marquee-track {
-    display: flex;
-    grid-template-columns: none !important; /* Override grid */
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    grid-template-columns: none !important;
+    margin-top: 0 !important; /* Remove top margin that pushes it out */
 }
 
 .case-study-grid.marquee-track .case-study-box,
@@ -1028,7 +1034,9 @@ section {
     width: 440px;
     flex-shrink: 0;
     user-select: none;
+    height: auto;
 }
+
 
 
 
