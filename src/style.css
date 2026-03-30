@@ -2150,3 +2150,33 @@ img {
     display: block;
 }
 
+/* --- Logo Styling --- */
+.logo { display: inline-block; vertical-align: middle; }
+.logo img, .logo-mini img {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(1.1);
+    transition: var(--transition-mid);
+}
+
+.logo:hover img, .logo-mini:hover img {
+    transform: scale(1.05);
+}
+
+/* --- Disclaimer --- */
+.disclaimer-box {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.disclaimer-box strong {
+    color: #fff;
+    font-weight: 700;
+}
+
+
