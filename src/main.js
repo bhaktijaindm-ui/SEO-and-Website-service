@@ -364,10 +364,45 @@ function initBlogFilters() {
 }
 
 /**
- * Re-export manual toggle
+ * Carousel Navigation System
  */
-window.toggleService = () => {
-    const current = localStorage.getItem('selectedService') || 'seo';
-    const next = current === 'seo' ? 'website' : 'seo';
-    window.selectService(next);
-};
+function initCarouselNavs() {
+    const containers = document.querySelectorAll('.carousel-container');
+    
+    containers.forEach(container => {
+        const track = container.querySelector('.marquee-track');
+        if (!track) return;
+
+        // Add Arrows to DOM
+        const prevBtn = document.createElement('button');
+        prevBtn.className = 'carousel-nav-btn prev';
+        prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
+        
+        const nextBtn = document.createElement('button');
+        nextBtn.className = 'carousel-nav-btn next';
+        nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
+
+        container.appendChild(prevBtn);
+        container.appendChild(nextBtn);
+
+        // Click Logic
+        const step = 400; // Scroll amount
+
+        prevBtn.addEventListener('click', () => {
+            container.scrollBy({ left: -step, behavior: 'smooth' });
+        });
+
+        nextBtn.addEventListener('click', () => {
+            container.scrollBy({ left: step, behavior: 'smooth' });
+        });
+    });
+}
+
+/**
+ * Core Initialization
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    // Other inits...
+    initCarouselNavs();
+});
+
