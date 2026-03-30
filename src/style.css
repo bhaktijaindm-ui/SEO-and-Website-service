@@ -987,8 +987,50 @@ section {
 }
 
 .testimonial-marquee { overflow: hidden; position: relative; padding: 2.5rem 0; width: 100vw; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; }
-.marquee-track { display: flex; gap: 3.5rem; width: max-content; animation: marquee 80s linear infinite; }
+
+.marquee-track { 
+    display: flex; 
+    gap: 3.5rem; 
+    width: max-content; 
+    animation: marquee 40s linear infinite; 
+    cursor: grab;
+}
+
+.marquee-track:active {
+    cursor: grabbing;
+}
+
+.marquee-track:hover {
+    animation-play-state: paused;
+}
+
 .marquee-row-reverse .marquee-track { animation-direction: reverse; }
+
+/* Generic Carousel Adjustments for Case Studies & Blog */
+.carousel-container {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    padding: 3rem 0;
+    /* Premium Fade Edge Effect */
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.case-study-grid.marquee-track, 
+.blog-grid-modern.marquee-track {
+    display: flex;
+    grid-template-columns: none !important; /* Override grid */
+}
+
+.case-study-grid.marquee-track .case-study-box,
+.blog-grid-modern.marquee-track .blog-card {
+    width: 440px;
+    flex-shrink: 0;
+    user-select: none;
+}
+
+
 
 .testimonial-card-scroll {
     width: 440px;
