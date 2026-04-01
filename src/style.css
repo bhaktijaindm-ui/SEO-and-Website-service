@@ -2347,13 +2347,50 @@ body.user-website .service-website-content {
     background-clip: text;
 }
 
-.a-stat span { 
-    font-size: 0.85rem; 
-    font-weight: 700; 
-    color: var(--text-muted); 
-    text-transform: uppercase; 
-    margin-top: 0.8rem; 
-    letter-spacing: 1px;
+/* --- Case Study Hero Spacing --- */
+.case-hero {
+    padding-top: clamp(140px, 18vh, 200px);
+    padding-bottom: 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.case-hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.case-hero-content h1 {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    line-height: 1.1;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+.case-hero-content p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Footer Giant Logo Fix for Individual Pages */
+.footer-giant-wrapper { 
+    margin-top: 4rem;
+    overflow: hidden;
+}
+
+.giant-text {
+    font-size: clamp(4rem, 15vw, 12rem);
+    font-weight: 900;
+    line-height: 0.8;
+    text-align: center;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255,255,255,0.05);
+    text-transform: uppercase;
+    letter-spacing: -2px;
 }
 
 @media (max-width: 1024px) {
