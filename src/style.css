@@ -1909,7 +1909,7 @@ body.user-website .btn-primary {
     right: 2.5rem;
     z-index: 10000;
     width: auto;
-    padding: 0.8rem 2rem;
+    padding: 1rem 2.2rem;
     display: flex;
     flex-direction: row;
     gap: 12px;
@@ -1959,15 +1959,13 @@ body.user-website .btn-primary {
     .node-content, .node-meta { width: 100%; text-align: left !important; padding: 0; } .node-meta { margin-bottom: 1.5rem; } 
 }
 
-@media (max-width: 992px) {
-    .service-options { grid-template-columns: 1fr; }
+@media (max-width: 1200px) {
     .floating-service-btn { 
-        bottom: 1.5rem; 
-        right: 1.5rem; /* Keep on right but safer */
-        left: auto;
-        padding: 12px 24px;
-        font-size: 0.8rem; 
-        border-radius: 10px;
+        bottom: 1.2rem; 
+        right: 1.2rem;
+        padding: 10px 20px;
+        font-size: 0.75rem; 
+        box-shadow: 0 10px 30px rgba(0,0,0,0.8);
     }
 }
 
@@ -2933,34 +2931,49 @@ body.user-website .footer-logo-brand span {
 }
 
 .sidebar-box {
-    padding: 2.5rem;
+    padding: 3rem 2.5rem;
     border-radius: 20px;
-    background: rgba(15, 23, 42, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    background: rgba(15, 23, 42, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+    text-align: left;
 }
 
 .sidebar-box h4 {
-    font-size: 1.4rem;
-    font-weight: 800;
-    margin-bottom: 1.2rem;
+    font-size: 1.5rem;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
     color: #fff;
+    letter-spacing: -0.8px;
+}
+
+.sidebar-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
 }
 
 .sidebar-form input {
-    height: 58px; /* High-end height */
-    background: rgba(255, 255, 255, 0.02);
+    width: 100% !important;
+    height: 58px;
+    padding: 0 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
-    margin-bottom: 14px;
-    font-size: 1.05rem;
+    color: #fff;
+    font-size: 1rem;
+    display: block;
 }
 
 .sidebar-form button {
+    width: 100% !important;
     height: 60px;
-    font-size: 1.1rem;
-    letter-spacing: 1px;
-    background: var(--indigo-primary);
-    box-shadow: 0 15px 30px var(--indigo-glow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
 }
 
 /* 4. Fix Navbar Overlap on Narrow Screens */
@@ -2976,7 +2989,10 @@ body.user-website .footer-logo-brand span {
     }
     .case-sidebar {
         position: static;
-        padding-bottom: 150px;
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        padding-bottom: 250px; /* Massive clear area for switcher */
     }
 }
 
