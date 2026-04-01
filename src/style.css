@@ -1671,20 +1671,23 @@ body.user-website .btn-primary {
 }
 
 .cta-box h2 {
-    font-size: clamp(2.2rem, 6vw, 4.2rem);
-    margin-bottom: 1.5rem;
-    background: linear-gradient(90deg, #fff, var(--indigo-primary));
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    margin-bottom: 2rem;
+    background: linear-gradient(90deg, #fff 30%, var(--indigo-primary));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     line-height: 1.1;
+    font-weight: 900;
+    letter-spacing: -1.5px;
 }
 
 .cta-box p {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     max-width: 650px;
-    margin: 0 auto 3rem;
+    margin: 0 auto 3.5rem;
     color: var(--text-muted);
+    line-height: 1.7;
 }
 
 .cta-box .btn-large {
