@@ -2481,6 +2481,7 @@ body.user-website h2.service-website-content {
     display: block !important;
 }
 
+
 /* Website Dashboard Theme Adjustments */
 body.user-website .badge {
     background: rgba(168, 85, 247, 0.1);
@@ -2498,3 +2499,131 @@ body.user-website .floating-service-btn {
 body.user-website .footer-logo-brand span {
     color: var(--purple-accent);
 }
+
+/* --- Detailed Case Study Playbooks (SEO Dashboard Only) --- */
+.toc {
+    background: var(--glass-card-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 32px 40px;
+    margin: 40px 0 60px;
+}
+.toc h2 {
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    color: var(--cyan-secondary);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+.toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px;
+}
+.toc-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 12px;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+.toc-item:hover {
+    background: rgba(14, 165, 233, 0.1);
+    border-color: var(--cyan-secondary);
+    transform: translateY(-2px);
+}
+.toc-num {
+    font-family: monospace;
+    font-size: 0.75rem;
+    color: var(--cyan-secondary);
+    opacity: 0.7;
+}
+
+.case-study-playbook {
+    margin: 80px 0;
+    border: 1px solid var(--glass-border);
+    border-radius: 30px;
+    overflow: hidden;
+    background: var(--glass-card-bg);
+    box-shadow: 0 40px 100px -20px rgba(0,0,0,0.5);
+}
+.playbook-header {
+    padding: 60px 60px 40px;
+    border-bottom: 1px solid var(--glass-border);
+    position: relative;
+    overflow: hidden;
+}
+.playbook-header.monday { border-bottom: 3px solid #7bcf2a; background: linear-gradient(135deg, rgba(123, 207, 42, 0.05), transparent); }
+.playbook-header.typeform { border-bottom: 3px solid #2ab8cf; background: linear-gradient(135deg, rgba(42, 184, 207, 0.05), transparent); }
+.playbook-header.scribe { border-bottom: 3px solid #ff6b35; background: linear-gradient(135deg, rgba(255, 107, 53, 0.05), transparent); }
+.playbook-header.daycare { border-bottom: 3px solid #8b6fff; background: linear-gradient(135deg, rgba(139, 111, 255, 0.05), transparent); }
+.playbook-header.ahrefs { border-bottom: 3px solid #4ecdc4; background: linear-gradient(135deg, rgba(78, 205, 196, 0.05), transparent); }
+
+.playbook-num { font-size: 0.7rem; letter-spacing: 4px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 15px; display: block; }
+.playbook-header h2 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 20px; color: #fff; }
+.playbook-tagline { font-size: 1.1rem; color: var(--text-muted); font-style: italic; opacity: 0.8; }
+
+.playbook-body { padding: 40px 60px 60px; }
+.result-pills { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 40px; }
+.pill { padding: 8px 18px; border-radius: 100px; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px; }
+
+.pill.green { background: rgba(123,207,42,0.1); color: #7bcf2a; border: 1px solid rgba(123,207,42,0.2); }
+.pill.blue { background: rgba(42,184,207,0.1); color: #2ab8cf; border: 1px solid rgba(42,184,207,0.2); }
+.pill.orange { background: rgba(255,107,53,0.1); color: #ff6b35; border: 1px solid rgba(255,107,53,0.2); }
+.pill.yellow { background: rgba(240,192,64,0.1); color: #f0c040; border: 1px solid rgba(240,192,64,0.2); }
+.pill.purple { background: rgba(139,111,255,0.1); color: #8b6fff; border: 1px solid rgba(139,111,255,0.2); }
+
+.playbook-body h3 { font-size: 1.5rem; color: #fff; margin: 40px 0 20px; }
+.playbook-body p { margin-bottom: 20px; color: var(--text-main); font-size: 1.05rem; line-height: 1.8; }
+
+.highlight-box {
+    border-left: 4px solid var(--cyan-secondary);
+    background: rgba(14, 165, 233, 0.05);
+    padding: 24px 30px;
+    border-radius: 0 15px 15px 0;
+    margin: 30px 0;
+    font-style: italic;
+    color: #cbd5e1;
+}
+.highlight-box.green { border-color: #7bcf2a; background: rgba(123,207,42,0.03); }
+.highlight-box.orange { border-color: #ff6b35; background: rgba(255,107,53,0.03); }
+
+/* Flowchart */
+.flow { display: flex; flex-direction: column; align-items: center; padding: 40px; background: rgba(0,0,0,0.2); border-radius: 20px; border: 1px solid var(--glass-border); margin: 40px 0; }
+.flow-row { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; width: 100%; margin: 10px 0; }
+.flow-box {
+    padding: 16px 24px; border-radius: 14px; text-align: center; font-size: 0.9rem; font-weight: 700;
+    width: 200px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03);
+}
+.flow-arrow { font-size: 24px; color: var(--text-muted); margin: 10px 0; opacity: 0.3; }
+
+/* Metrics */
+.playbook-metrics { margin: 40px 0; background: rgba(0,0,0,0.2); padding: 30px; border-radius: 20px; border: 1px solid var(--glass-border); }
+.met-row { margin-bottom: 25px; }
+.met-lbl { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.9rem; font-weight: 600; color: #fff; }
+.met-bar { height: 10px; background: rgba(255,255,255,0.05); border-radius: 10px; overflow: hidden; }
+.met-fill { height: 100%; border-radius: 10px; transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1); }
+
+.met-fill.green { background: linear-gradient(90deg, #7bcf2a, #a8e857); }
+.met-fill.blue { background: linear-gradient(90deg, #2ab8cf, #4ecdc4); }
+.met-fill.orange { background: linear-gradient(90deg, #ff6b35, #ff9066); }
+.met-fill.yellow { background: linear-gradient(90deg, #f0c040, #ffd875); }
+
+.takeaway-box {
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), transparent);
+    border: 1px solid rgba(14, 165, 233, 0.2);
+    border-radius: 20px; padding: 35px; margin: 40px 0;
+}
+.takeaway-box h4 { text-transform: uppercase; letter-spacing: 2px; color: var(--cyan-secondary); font-size: 0.8rem; margin-bottom: 20px; }
+.takeaway-box ul li { margin-bottom: 12px; color: var(--text-muted); position: relative; padding-left: 25px; list-style: none; }
+.takeaway-box ul li::before { content: '→'; position: absolute; left: 0; color: var(--cyan-secondary); font-weight: 900; }
+
+.playbook-cta { margin-top: 50px; padding-top: 40px; border-top: 1px solid var(--glass-border); text-align: center; }
+.playbook-cta p { font-size: 1.25rem; font-weight: 700; margin-bottom: 25px !important; color: #fff; }
