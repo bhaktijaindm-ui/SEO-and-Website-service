@@ -570,13 +570,13 @@ section {
 /* --- Hero Section --- */
 /* --- Hero Section Improvements --- */
 .page-hero {
-    padding: 60px 0 30px;
+    padding: 160px 0 60px;
 }
 .hero {
     min-height: 75vh;
     display: flex;
     align-items: center;
-    padding-top: clamp(80px, 12vh, 130px);
+    padding-top: clamp(140px, 18vh, 200px);
     overflow: hidden;
     position: relative;
 }
