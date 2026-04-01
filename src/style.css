@@ -99,7 +99,7 @@ span.badge:hover {
 }
 
 section {
-    padding: clamp(50px, 7vh, 100px) 0;
+    padding: clamp(40px, 5vh, 80px) 0;
     position: relative;
     scroll-margin-top: 100px;
 }
@@ -569,11 +569,14 @@ section {
 
 /* --- Hero Section --- */
 /* --- Hero Section Improvements --- */
+.page-hero {
+    padding: 60px 0 30px;
+}
 .hero {
-    min-height: 85vh;
+    min-height: 75vh;
     display: flex;
     align-items: center;
-    padding-top: clamp(120px, 18vh, 190px);
+    padding-top: clamp(80px, 12vh, 130px);
     overflow: hidden;
     position: relative;
 }
@@ -1343,14 +1346,14 @@ section {
 
 /* --- Case Study Grid --- */
 .case-studies-list {
-    padding: clamp(80px, 12vh, 150px) 0;
+    padding: clamp(40px, 6vh, 80px) 0;
 }
 
 .case-study-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
     gap: 3rem;
-    margin-top: 4rem;
+    margin-top: 2.5rem;
 }
 
 .case-study-box {
@@ -1556,9 +1559,9 @@ section {
 }
 
 /* --- Final Spacing Fixes --- */
-.hero { padding-bottom: 60px; }
+.hero { padding-bottom: 40px; }
 .about-preview, .tools-section, .case-studies, .results-stats, .blog, .pricing, .testimonials-section, .contact-cta {
-    padding: 100px 0;
+    padding: 60px 0;
 }
 
 /* Capsule Nav Shadow Fix */
