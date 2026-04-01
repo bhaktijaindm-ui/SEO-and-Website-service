@@ -1408,38 +1408,63 @@ section {
 }
 
 .case-box-content {
-    padding: 2rem;
+    padding: 2.5rem;
     display: flex;
     flex-direction: column;
     flex: 1;
+    gap: 1rem;
+}
+
+.case-meta {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--cyan-secondary);
 }
 
 .case-box-content h3 {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: 800;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
     color: #fff;
-}
-
-.case-box-content p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: var(--text-muted);
-    margin-bottom: 2rem;
-    flex: 1;
+    line-height: 1.25;
 }
 
 .box-metrics {
     display: flex;
-    gap: 1.5rem;
-    margin-top: auto;
+    gap: 2rem;
+    margin: 1.5rem 0;
     padding-top: 1.5rem;
-    border-top: 1px solid var(--glass-border);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.box-stat { display: flex; flex-direction: column; gap: 0.2rem; }
-.box-stat .val { font-size: 1.5rem; font-weight: 900; color: #fff; line-height: 1; }
-.box-stat .lbl { font-size: 0.7rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+.box-stat { display: flex; flex-direction: column; gap: 0.3rem; }
+.box-stat .val { font-size: 1.8rem; font-weight: 900; color: #fff; line-height: 1; }
+.box-stat .lbl { font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+
+.case-box-content .btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: auto;
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.case-box-content .btn-outline {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.case-box-content .btn-outline:hover {
+    background: var(--indigo-primary);
+    border-color: var(--indigo-primary);
+    box-shadow: 0 15px 30px var(--indigo-glow);
+    transform: translateY(-5px);
+}
 
 @media (max-width: 1200px) {
     .case-study-grid { grid-template-columns: repeat(2, 1fr); gap: 3rem; }
