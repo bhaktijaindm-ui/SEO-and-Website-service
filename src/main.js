@@ -406,3 +406,28 @@ document.addEventListener('DOMContentLoaded', () => {
     initCarouselNavs();
 });
 
+
+/**
+ * Global Dashboard Toggle
+ */
+window.toggleService = () => {
+    const current = localStorage.getItem('selectedService') || 'seo';
+    const next = current === 'seo' ? 'website' : 'seo';
+    
+    // Determine the base URL for the selected service
+    const baseUrl = next === 'website' ? '/web-design-service' : '/seo-service';
+    
+    // Detect current page suffix for seamless transition
+    const currentPath = window.location.pathname;
+    let pageSuffix = currentPath.split('/').pop();
+    if (pageSuffix === 'seo-service' || pageSuffix === 'web-design-service' || !pageSuffix || pageSuffix === 'index.html' || pageSuffix === '/') {
+        pageSuffix = '';
+    }
+
+    const finalUrl = pageSuffix ? `${baseUrl}/${pageSuffix}` : baseUrl;
+
+    // Apply & Redirect
+    localStorage.setItem('selectedService', next);
+    window.applyServiceGlobal(next);
+    window.location.assign(finalUrl);
+};

@@ -2326,3 +2326,61 @@ img {
 }
 
 
+
+/* --- Dashboard Switcher Visibility Logic --- */
+.service-seo-content,
+.service-website-content {
+    display: none !important;
+}
+
+/* SEO Dashboard Active */
+body.user-seo .service-seo-content {
+    display: block !important;
+}
+body.user-seo .service-seo-content.tech-card,
+body.user-seo .service-seo-content.service-large-card,
+body.user-seo .service-seo-content.market-card {
+    display: flex !important;
+}
+body.user-seo .service-seo-content.market-grid,
+body.user-seo .service-seo-content.tech-grid {
+    display: grid !important;
+}
+body.user-seo h1.service-seo-content,
+body.user-seo h2.service-seo-content {
+    display: block !important;
+}
+
+/* Website Dashboard Active */
+body.user-website .service-website-content {
+    display: block !important;
+}
+body.user-website .service-website-content.tech-card,
+body.user-website .service-website-content.service-large-card {
+    display: flex !important;
+}
+body.user-website .service-website-content.tech-grid {
+    display: grid !important;
+}
+body.user-website h1.service-website-content,
+body.user-website h2.service-website-content {
+    display: block !important;
+}
+
+/* Website Dashboard Theme Adjustments */
+body.user-website .badge {
+    background: rgba(168, 85, 247, 0.1);
+    border-color: rgba(168, 85, 247, 0.3);
+    color: var(--purple-accent);
+}
+body.user-website .btn-primary {
+    background: var(--purple-accent);
+    box-shadow: 0 0 15px var(--purple-glow);
+}
+body.user-website .floating-service-btn {
+    border-color: var(--purple-accent);
+    color: var(--purple-accent);
+}
+body.user-website .footer-logo-brand span {
+    color: var(--purple-accent);
+}
