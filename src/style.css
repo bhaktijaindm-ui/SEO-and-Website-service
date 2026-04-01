@@ -849,13 +849,43 @@ section {
 
 /* --- Global Page Headers --- */
 .page-hero {
-    padding: 80px 0;
-    background: linear-gradient(to bottom, rgba(6, 182, 212, 0.05), transparent);
+    padding: clamp(140px, 18vh, 180px) 0 100px;
+    background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.05), transparent);
     position: relative;
+    overflow: hidden;
+}
+
+.page-hero .hero-grid {
+    align-items: center;
 }
 
 .page-hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    line-height: 1.1;
     margin-bottom: 1.5rem;
+    font-weight: 900;
+}
+
+.page-hero h1 span {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--indigo-primary), var(--cyan-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 20px var(--indigo-glow));
+}
+
+.page-hero p {
+    font-size: 1.15rem;
+    max-width: 650px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+@media (max-width: 992px) {
+    .page-hero .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 4rem; }
+    .page-hero .hero-text { display: flex; flex-direction: column; align-items: center; }
+    .page-hero .dashboard-stack-modern { align-items: center; }
 }
 
 /* --- Blog Search & Filters --- */
