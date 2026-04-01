@@ -429,6 +429,83 @@ section {
     .tech-card { min-height: auto; padding: 3rem 2rem; }
 }
 
+/* --- Market Specific SEO Grid --- */
+.market-grid-section {
+    padding: 100px 0;
+}
+
+.market-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.market-card {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition: var(--transition-mid);
+    position: relative;
+    border-radius: 16px;
+    background: rgba(15, 23, 42, 0.3);
+}
+
+.market-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: var(--indigo-primary);
+    background: rgba(15, 23, 42, 0.6);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px var(--indigo-glow);
+}
+
+.market-card i {
+    font-size: 2.2rem;
+    color: var(--indigo-primary);
+    transition: var(--transition-mid);
+}
+
+.market-card:hover i {
+    color: var(--cyan-secondary);
+    transform: rotate(5deg);
+}
+
+.market-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.market-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+}
+
+.market-card .card-footer {
+    margin-top: auto;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--indigo-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: var(--transition-mid);
+}
+
+.market-card:hover .card-footer {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+@media (max-width: 768px) {
+    .market-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* --- Hero Section --- */
 /* --- Hero Section Improvements --- */
 .hero {
