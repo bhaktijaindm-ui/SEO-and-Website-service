@@ -2870,175 +2870,133 @@ body.user-website .footer-logo-brand span {
 .playbook-cta { margin-top: 50px; padding-top: 40px; border-top: 1px solid var(--glass-border); text-align: center; }
 .playbook-cta p { font-size: 1.25rem; font-weight: 700; margin-bottom: 25px !important; color: #fff; }
 
-/* --- 3:1 Case Study Split Layout --- */
-.case-detail-page .container {
-    max-width: 1400px;
-}
-.case-split {
-    display: flex;
-    gap: 50px;
-    align-items: flex-start;
-}
-.case-playbook {
-    width: 73%;
-    flex-shrink: 0;
-}
-.case-sidebar {
-    width: calc(28% - 50px);
-    flex-shrink: 0;
-    position: sticky;
-    top: 120px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-.sidebar-box {
-    padding: 2rem;
-    border-radius: 24px;
-    background: rgba(15, 23, 42, 0.45);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    transition: var(--transition-mid);
+/* --- High-End Case Study Overhaul --- */
+.case-detail-page {
+    background: #05070d; /* Slightly darker for depth */
 }
 
-.secondary-box {
-    border-color: rgba(6, 182, 212, 0.15);
-    background: radial-gradient(circle at top left, rgba(6, 182, 212, 0.08), transparent);
+/* 1. Cinematic Hero */
+.case-hero {
+    padding: 180px 0 100px;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    position: relative;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+.case-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(14, 165, 233, 0.05) 0%, transparent 80%);
+    pointer-events: none;
+}
+
+.case-hero-content h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.05;
+    font-weight: 900;
+    letter-spacing: -2px;
+    margin-bottom: 2rem;
+    color: #fff;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 2. Fluid 3:1 Split */
+.case-main-content {
+    padding: 80px 0 140px;
+}
+
+.case-split {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+.case-playbook {
+    width: 68%; /* Slightly wider gap */
+    flex-shrink: 0;
+}
+
+/* 3. Refined Sticky Sidebar */
+.case-sidebar {
+    width: 32%;
+    position: sticky;
+    top: 140px; /* More clearance from Nav */
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    z-index: 50;
+}
+
+.sidebar-box {
+    padding: 2.5rem;
+    border-radius: 20px;
+    background: rgba(15, 23, 42, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
 }
 
 .sidebar-box h4 {
-    font-size: 1.25rem;
+    font-size: 1.4rem;
     font-weight: 800;
-    margin-bottom: 0.8rem;
+    margin-bottom: 1.2rem;
     color: #fff;
-    letter-spacing: -0.5px;
-}
-
-.sidebar-box p {
-    font-size: 0.95rem;
-    color: var(--text-muted);
-    margin-bottom: 2rem;
-    line-height: 1.6;
-}
-
-.sidebar-form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
 }
 
 .sidebar-form input {
-    height: 52px;
-    padding: 0 1.2rem;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    height: 58px; /* High-end height */
+    background: rgba(255, 255, 255, 0.02);
     border-radius: 12px;
-    color: #fff;
-    font-size: 0.95rem;
-    transition: all 0.3s ease;
-}
-
-.sidebar-form input:focus {
-    outline: none;
-    background: rgba(255, 255, 255, 0.06);
-    border-color: var(--indigo-primary);
-    box-shadow: 0 0 15px rgba(99, 102, 241, 0.15);
+    margin-bottom: 14px;
+    font-size: 1.05rem;
 }
 
 .sidebar-form button {
-    height: 52px;
-    border-radius: 12px;
-    font-weight: 800;
-    margin-top: 5px;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.sidebar-form button:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 10px 20px var(--indigo-glow);
-}
-
-.sidebar-list {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-}
-
-.sidebar-list li a {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: #cbd5e1;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.sidebar-list li a::before {
-    content: '\f105';
-    font-family: 'Font Awesome 6 Free';
-    font-weight: 900;
-    color: var(--indigo-primary);
-    font-size: 0.8rem;
-    opacity: 0.7;
-}
-
-.sidebar-list li a:hover {
-    color: #fff;
-    transform: translateX(5px);
-}
-
-.mini-blog-card {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-}
-.mini-blog-card img {
-    width: 60px;
     height: 60px;
-    border-radius: 8px;
-    object-fit: cover;
-}
-.mini-blog-card a {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: #fff;
-    text-decoration: none;
-    line-height: 1.4;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    background: var(--indigo-primary);
+    box-shadow: 0 15px 30px var(--indigo-glow);
 }
 
-@media (max-width: 1150px) {
+/* 4. Fix Navbar Overlap on Narrow Screens */
+@media (max-width: 1200px) {
     .case-split {
         flex-direction: column;
-        gap: 3rem;
+        gap: 50px;
+    }
+    .case-playbook, .case-sidebar {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
     }
     .case-sidebar {
         position: static;
-        width: 100%;
-        max-width: 600px;
-        margin: 0 auto;
-        padding-bottom: 120px; /* Air for the switcher */
+        padding-bottom: 150px;
     }
 }
 
-.case-sidebar .sidebar-box {
-    background: rgba(15, 23, 42, 0.6);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(20px);
+/* Mobile Nav Button Size reduction */
+@media (max-width: 768px) {
+    .nav-cta .btn-sm {
+        padding: 10px 18px;
+        font-size: 0.8rem;
+    }
+    .case-hero {
+        padding: 150px 20px 80px;
+    }
 }
 
-.sidebar-form input, .sidebar-form button {
-    height: 52px;
-    font-size: 1rem;
-}
-
-.sidebar-form button {
-    margin-top: 10px;
-    font-weight: 700;
+.featured-label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--cyan-secondary);
+    margin-bottom: 20px;
+    font-weight: 800;
 }
