@@ -2871,26 +2871,26 @@ body.user-website .footer-logo-brand span {
 .playbook-cta p { font-size: 1.25rem; font-weight: 700; margin-bottom: 25px !important; color: #fff; }
 
 /* --- 3:1 Case Study Split Layout --- */
-.case-detail-container {
-    padding-top: 60px;
-    padding-bottom: 100px;
+.case-detail-page .container {
+    max-width: 1400px;
 }
 .case-split {
     display: flex;
-    gap: 40px;
+    gap: 50px;
     align-items: flex-start;
 }
-.case-main-column {
-    flex: 3;
-    min-width: 0;
+.case-playbook {
+    width: 73%;
+    flex-shrink: 0;
 }
 .case-sidebar {
-    flex: 1;
+    width: calc(28% - 50px);
+    flex-shrink: 0;
     position: sticky;
-    top: 100px;
+    top: 120px;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 30px;
 }
 .sidebar-box {
     padding: 25px;
