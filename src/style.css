@@ -880,6 +880,12 @@ section {
     max-width: 650px;
     color: var(--text-muted);
     line-height: 1.6;
+    margin: 0 auto; /* Ensure centering within container */
+}
+
+.hero-btns {
+    width: 100%;
+    justify-content: center;
 }
 
 @media (max-width: 992px) {
