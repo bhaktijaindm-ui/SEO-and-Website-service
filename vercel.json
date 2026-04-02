@@ -9,6 +9,7 @@
     { "source": "/seo-service/pricing", "destination": "/pricing" },
     { "source": "/seo-service/blog", "destination": "/blog" },
     { "source": "/seo-service/contact", "destination": "/contact" },
+    { "source": "/seo-service/testimonials", "destination": "/testimonials" },
     { "source": "/seo-service/case-:slug", "destination": "/case-:slug" },
     { "source": "/web-design-service", "destination": "/" },
     { "source": "/web-design-service/services", "destination": "/services" },
@@ -17,6 +18,7 @@
     { "source": "/web-design-service/pricing", "destination": "/pricing" },
     { "source": "/web-design-service/blog", "destination": "/blog" },
     { "source": "/web-design-service/contact", "destination": "/contact" },
+    { "source": "/web-design-service/testimonials", "destination": "/testimonials" },
     { "source": "/web-design-service/case-:slug", "destination": "/case-:slug" }
   ]
 }

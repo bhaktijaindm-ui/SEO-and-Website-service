@@ -2079,6 +2079,11 @@ body.user-website .btn-primary {
     transition: var(--transition-fast);
 }
 
+.form-group select option {
+    background: #0f172a;
+    color: #fff;
+}
+
 .form-group input::placeholder {
     color: rgba(255,255,255,0.2);
 }
