@@ -1,7 +1,7 @@
 import os
 import re
 
-# Main SEO Dashboard pages (10 FAQs)
+# Main SEO Dashboard pages
 main_pages = [
     "index.html", "services.html", "about.html", "blog.html", "pricing.html", 
     "testimonials.html", "case-studies.html", "case-monday.html", "case-ahrefs.html",
@@ -9,126 +9,81 @@ main_pages = [
     "case-openai.html", "case-surfer.html", "case-intercom.html", "case-adobe.html"
 ]
 
-# FAQ 10-Item Block for Main Pages
-faq_10_html = """
-        <!-- SEO FAQ DYNAMIC SECTION (DASHBOARD) -->
-        <section class="seo-faq-section service-seo-content reveal-up" style="padding: 100px 0; border-top: 1px solid rgba(255,255,255,0.05);">
+faqs_10 = [
+    ("How much do monthly seo services cost for small businesses?", "Our seo company specializes in seo google and google seo services. We are the best seo company for businesses needing a dedicated seo specialist and as an elite seo agency, we lead the industry through technical excellence."),
+    ("What are the common seo services near me and their benefits?", "We offer a complete suite of seo services including website seo and seo website design. Our seo expert team provides a personalized seo service for every seo tool and seo software integration needed for scale."),
+    ("How does a top-rated seo company improve google seo rankings?", "The future is here with ai seo and seo ai solutions. We utilize ai seo tools for technical seo audits and high-end seo analysis to boost your seo ranking and current seo optimization status for modern search engines."),
+    ("Can ai seo tools significantly speed up technical audits?", "Absolutely. Modern seo strategy includes ai seo tools for intent mapping and seo audit checks to ensure every seo website we manage reaches its full potential through rigorous seo optimization."),
+    ("What is the true seo meaning for modern digital brands?", "If you want to know what is seo or the exact seo meaning, it starts with a deep seo audit and a proper seo check using a professional seo checker and generating a comprehensive monthly seo report."),
+    ("How to find the best seo company with proven case studies?", "We leverage the best seo tools and advanced seo training to improve your ecommerce seo performance. Our seo consultant advice and seo jobs experience across youtube seo and wordpress seo ensure your results match our case studies."),
+    ("Why is local seo strategy critical for service-based businesses?", "Every brand needs seo tracking and thorough seo analytics to win. We provide expert seo tips to help seo agencies scale, just as seo in guk and seo kang joon bring artistic mastery to their specialized local seo fields."),
+    ("How long do ecommerce seo results take to show roi?", "For local dominance, our geo seo and geo strategies capture high-intent traffic from our dedicated seo blog. We use a professional seo tool to identify the best seo keywords and emerging seo news trends that drive ecommerce roi."),
+    ("What are the essential best seo tools for 2025 growth?", "Whether you need a simple seo check or a full seo report on your progress, our seo services provide the technical seo backbone needed for long-term growth using the industry's best seo tools."),
+    ("How to track success with detailed seo analytics and reports?", "Our seo agency approach to google seo is based on analytics and results. We help you understand how to use seo tools effectively to track progress and beat the competition with a robust and custom seo strategy.")
+]
+
+faqs_5_case = [
+    ("How was this specific seo company success achieved?", "This project utilized an expert seo agency approach to google seo using advanced technical seo methods and deep seo analysis to secure top seo ranking positions in record time."),
+    ("Which technical seo tools were used for this project?", "We leverage a customized seo tool stack and professional seo software for seo tracking and ongoing seo optimization as part of our core seo services for high-end clients."),
+    ("Why is this case study relevant to my local seo strategy?", "Local seo focus uses geo seo data and specific geo targets to drive traffic, while technical seo report data shows the overall growth of seo keywords in search globally and locally."),
+    ("What was the roi of this technical seo audit plan?", "A comprehensive seo search starts with a deep seo audit and a proper seo check using a professional seo checker. This case study shows the massive roi generated from fixing fundamental technical errors."),
+    ("How does this success relate to the broader seo meaning?", "Sustainable success means having an seo specialist who understands the best seo tools and how to navigate seo news, ensuring your wordpress seo and youtube seo are always current and performing.")
+]
+
+def generate_faq_html(faq_list, title, is_dashboard=True):
+    badge = "FAQ"
+    section_class = "seo-faq-section service-seo-content reveal-up"
+    style = 'padding: 100px 0; border-top: 1px solid rgba(255,255,255,0.05);'
+    
+    html = f"""
+        <!-- DYNAMIC SEO FAQ SECTION -->
+        <section class="{section_class}" style="{style}">
             <div class="container" style="max-width: 900px;">
                 <div class="section-header text-center" style="margin-bottom: 4rem;">
-                    <span class="badge">FAQ</span>
-                    <h2>Common Questions About Our SEO Services</h2>
-                    <p>Get clarity on how we drive organic growth for modern brands.</p>
+                    <span class="badge">{badge}</span>
+                    <h2>{title}</h2>
+                    <p>Insights based on trending Google search queries for 2025.</p>
                 </div>
-                <div class="faq-grid">
+                <div class="faq-grid">"""
+    
+    for q, a in faq_list:
+        html += f"""
                     <div class="faq-item glass-card" style="margin-bottom: 1.5rem;">
-                        <div class="faq-question" style="padding: 2rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center;"><h3>How does your seo company handle google seo?</h3><i class="fas fa-plus"></i></div>
-                        <div class="faq-answer" style="padding: 0 2rem 2rem; display: none;"><p>Our seo company specializes in seo google and google seo services. We are the best seo company for businesses needing a dedicated seo specialist and as an elite seo agency, we lead the industry through technical excellence.</p></div>
-                    </div>
-                    <div class="faq-item glass-card" style="margin-bottom: 1.5rem;">
-                        <div class="faq-question" style="padding: 2rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center;"><h3>What seo services are included in a typical plan?</h3><i class="fas fa-plus"></i></div>
-                        <div class="faq-answer" style="padding: 0 2rem 2rem; display: none;"><p>We offer a complete suite of seo services including website seo and seo website design. Our seo expert team provides a personalized seo service for every seo tool and seo software integration needed for scale.</p></div>
-                    </div>
-                    <div class="faq-item glass-card" style="margin-bottom: 1.5rem;">
-                        <div class="faq-question" style="padding: 2rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center;"><h3>Is your ai seo strategy effective for 2025?</h3><i class="fas fa-plus"></i></div>
-                        <div class="faq-answer" style="padding: 0 2rem 2rem; display: none;"><p>The future is here with ai seo and seo ai solutions. We utilize ai seo tools for technical seo audits and high-end seo analysis to boost your seo ranking and current seo optimization status for modern search engines.</p></div>
-                    </div>
-                    <div class="faq-item glass-card" style="margin-bottom: 1.5rem;">
-                        <div class="faq-question" style="padding: 2rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center;"><h3>How do you handle local seo and regional markets?</h3><i class="fas fa-plus"></i></div>
-                        <div class="faq-answer" style="padding: 0 2rem 2rem; display: none;"><p>For brands targeting a specific audience, local seo and seo local are vital. Choosing the right seo strategy and seo marketing plan helps seo companies and seo agencies dominate their regional market niche.</p></div>
-                    </div>
-                    <div class="faq-item glass-card" style="margin-bottom: 1.5rem;">
-                        <div class="faq-question" style="padding: 2rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center;"><h3>What is seo and its core meaning?</h3><i class="fas fa-plus"></i></div>
-                        <div class="faq-answer" style="padding: 0 2rem 2rem; display: none;"><p>If you want to know what is seo or the exact seo meaning, it starts with a deep seo audit and a proper seo check using a professional seo checker and generating a comprehensive monthly seo report.</p></div>
-                    </div>
-                    <div class="faq-item glass-card" style="margin-bottom: 1.5rem;">
-                        <div class="faq-question" style="padding: 2rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center;"><h3>Which tools do you use for ecommerce seo?</h3><i class="fas fa-plus"></i></div>
-                        <div class="faq-answer" style="padding: 0 2rem 2rem; display: none;"><p>We leverage the best seo tools and advanced seo training to improve your ecommerce seo performance. Our seo consultant advice and seo jobs experience across youtube seo and wordpress seo ensure your shop ranks.</p></div>
-                    </div>
-                    <div class="faq-item glass-card" style="margin-bottom: 1.5rem;">
-                        <div class="faq-question" style="padding: 2rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center;"><h3>How do you track seo analytics and provide insights?</h3><i class="fas fa-plus"></i></div>
-                        <div class="faq-answer" style="padding: 0 2rem 2rem; display: none;"><p>Every brand needs seo tracking and thorough seo analytics to win. We provide expert seo tips to help seo agencies scale, just as seo in guk and seo kang joon bring artistic mastery to their specialized fields.</p></div>
-                    </div>
-                    <div class="faq-item glass-card" style="margin-bottom: 1.5rem;">
-                        <div class="faq-question" style="padding: 2rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center;"><h3>Do you keep up with the latest seo news and trends?</h3><i class="fas fa-plus"></i></div>
-                        <div class="faq-answer" style="padding: 0 2rem 2rem; display: none;"><p>For local dominance, our geo seo and geo strategies capture high-intent traffic from our dedicated seo blog. We use a professional seo tool to identify the best seo keywords and emerging seo news trends in the industry.</p></div>
-                    </div>
-                    <div class="faq-item glass-card" style="margin-bottom: 1.5rem;">
-                        <div class="faq-question" style="padding: 2rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center;"><h3>Will I get regular seo report updates on rankings?</h3><i class="fas fa-plus"></i></div>
-                        <div class="faq-answer" style="padding: 0 2rem 2rem; display: none;"><p>Whether you need a simple seo check or a full seo report on your progress, our seo services provide the technical seo backbone needed for long-term growth and maintaining a stable seo ranking.</p></div>
-                    </div>
-                    <div class="faq-item glass-card" style="margin-bottom: 1.5rem;">
-                        <div class="faq-question" style="padding: 2rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center;"><h3>What sets your seo agency apart from the competition?</h3><i class="fas fa-plus"></i></div>
-                        <div class="faq-answer" style="padding: 0 2rem 2rem; display: none;"><p>Our seo agency approach to google seo is based on data and results. We help you understand what is seo and how to use seo tools effectively to beat the competition with a robust and custom seo strategy.</p></div>
-                    </div>
+                        <div class="faq-question" style="padding: 2rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center;"><h3>{q}</h3><i class="fas fa-plus"></i></div>
+                        <div class="faq-answer" style="padding: 0 2rem 2rem; display: none;"><p>{a}</p></div>
+                    </div>"""
+    
+    html += """
                 </div>
             </div>
-        </section>
-"""
+        </section>"""
+    return html
 
-# FAQ 5-Item Block for Case Studies and Blog
-faq_5_html_case = """
-        <!-- SEO FAQ SECTION (TAILORED) -->
-        <section class="seo-faq-section service-seo-content reveal-up" style="padding: 100px 0; border-top: 1px solid rgba(255,255,255,0.05);">
-            <div class="container" style="max-width: 900px;">
-                <div class="section-header text-center" style="margin-bottom: 4rem;">
-                    <span class="badge">FAQ</span>
-                    <h2>Project Insights & Strategy FAQs</h2>
-                    <p>Understanding the blueprint behind these seo google results.</p>
-                </div>
-                <div class="faq-grid">
-                    <div class="faq-item glass-card" style="margin-bottom: 1.5rem;">
-                        <div class="faq-question" style="padding: 2rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center;"><h3>How was this seo company success achieved?</h3><i class="fas fa-plus"></i></div>
-                        <div class="faq-answer" style="padding: 0 2rem 2rem; display: none;"><p>This project utilized an expert seo agency approach to google seo using advanced technical seo methods and deep seo analysis to secure top seo ranking positions.</p></div>
-                    </div>
-                    <div class="faq-item glass-card" style="margin-bottom: 1.5rem;">
-                        <div class="faq-question" style="padding: 2rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center;"><h3>Which seo tools were used for this case study?</h3><i class="fas fa-plus"></i></div>
-                        <div class="faq-answer" style="padding: 0 2rem 2rem; display: none;"><p>We leverage a customized seo tool stack and professional seo software for seo tracking and ongoing seo optimization as part of our core seo services.</p></div>
-                    </div>
-                    <div class="faq-item glass-card" style="margin-bottom: 1.5rem;">
-                        <div class="faq-question" style="padding: 2rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center;"><h3>Does this strategy include ai seo audits?</h3><i class="fas fa-plus"></i></div>
-                        <div class="faq-answer" style="padding: 0 2rem 2rem; display: none;"><p>Absolutely. Modern seo strategy includes ai seo tools for intent mapping and seo audit checks to ensure every seo website we manage reaches its full potential.</p></div>
-                    </div>
-                    <div class="faq-item glass-card" style="margin-bottom: 1.5rem;">
-                        <div class="faq-question" style="padding: 2rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center;"><h3>How do you track local seo and geo seo impacts?</h3><i class="fas fa-plus"></i></div>
-                        <div class="faq-answer" style="padding: 0 2rem 2rem; display: none;"><p>Our local seo focus uses geo seo data and specific geo targets to drive traffic, while technical seo report data shows the overall growth of seo keywords in search.</p></div>
-                    </div>
-                    <div class="faq-item glass-card" style="margin-bottom: 1.5rem;">
-                        <div class="faq-question" style="padding: 2rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center;"><h3>What is the seo meaning for long-term growth?</h3><i class="fas fa-plus"></i></div>
-                        <div class="faq-answer" style="padding: 0 2rem 2rem; display: none;"><p>Sustainable success means having an seo specialist who understands the best seo tools and how to navigate seo news, ensuring your wordpress seo and youtube seo are always current.</p></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-"""
+def inject(page, faq_html):
+    if not os.path.exists(page): return
+    with open(page, "r", encoding="utf-8") as f: content = f.read()
+    
+    # Remove existing FAQ section if any
+    content = re.sub(r'<!-- SEO FAQ.*?/section>', '', content, flags=re.DOTALL)
+    content = re.sub(r'<!-- DYNAMIC SEO FAQ.*?/section>', '', content, flags=re.DOTALL)
+    
+    if "</main>" in content:
+        new_content = content.replace("</main>", faq_html + "\n    </main>")
+    elif "<footer" in content:
+        new_content = content.replace("<footer", faq_html + "\n    <footer")
+    else: return
+    
+    with open(page, "w", encoding="utf-8") as f: f.write(new_content)
+    print(f"Updated FAQs on {page}.")
 
-# Apply to main pages
-for page in main_pages:
-    if os.path.exists(page):
-        with open(page, "r", encoding="utf-8") as f:
-            content = f.read()
-            
-        if "</main>" in content:
-            new_content = content.replace("</main>", faq_10_html + "\n    </main>")
-        elif "<footer" in content:
-            new_content = content.replace("<footer", faq_10_html + "\n    <footer")
-        else: continue
-        
-        with open(page, "w", encoding="utf-8") as f: f.write(new_content)
-        print(f"Injected 10 FAQs into {page}.")
+# Run it
+dashboard_html = generate_faq_html(faqs_10, "Common Questions About Our SEO Services")
+case_html = generate_faq_html(faqs_5_case, "Project Strategy & Success FAQ")
 
-# Apply 5 FAQs to all case study pages not in main_pages
+for p in main_pages:
+    inject(p, dashboard_html)
+
 all_case_files = [f for f in os.listdir(".") if f.startswith("case-") and f.endswith(".html")]
-for page in all_case_files:
-    if page in main_pages: continue # Already did them
-    if os.path.exists(page):
-        with open(page, "r", encoding="utf-8") as f:
-            content = f.read()
-            
-        if "</main>" in content:
-            new_content = content.replace("</main>", faq_5_html_case + "\n    </main>")
-        elif "<footer" in content:
-            new_content = content.replace("<footer", faq_5_html_case + "\n    <footer")
-        else: continue
-        
-        with open(page, "w", encoding="utf-8") as f: f.write(new_content)
-        print(f"Injected 5 FAQs into {page}.")
+for p in all_case_files:
+    if p in main_pages: continue
+    inject(p, case_html)

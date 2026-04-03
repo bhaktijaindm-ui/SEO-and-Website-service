@@ -3197,42 +3197,62 @@ body.user-website .footer-logo-brand span {
     pointer-events: none;
 }
 
-/* --- SEO Knowledge Section (Premium Aesthetic) --- */
-.seo-knowledge-section {
-    position: relative;
-    overflow: hidden;
+/* --- FAQ System Functionality --- */
+.faq-item.active .faq-answer {
+    display: block !important;
+    animation: slideDown 0.4s ease-out;
 }
 
-.seo-knowledge-section::before {
-    content: '';
-    position: absolute;
-    top: -100px;
-    right: -100px;
-    width: 400px;
-    height: 400px;
-    background: var(--cyan-glow);
-    filter: blur(120px);
-    border-radius: 50%;
-    z-index: 0;
-    opacity: 0.3;
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-.seo-knowledge-section .seo-column p {
-    font-size: 1.05rem;
-    color: var(--text-muted);
+.faq-item.active .faq-question i {
+    transform: rotate(45deg);
+    color: var(--indigo-primary);
 }
 
-.seo-knowledge-section .seo-column strong {
-    color: #fff;
-    font-weight: 700;
+/* --- Case Studies Archive Enhancements --- */
+.case-studies-archive .archive-hero {
+    padding: 160px 0 100px;
+    background: radial-gradient(circle at top, rgba(99, 102, 241, 0.05) 0%, transparent 70%);
 }
 
-@media (max-width: 992px) {
-    .seo-knowledge-section .glass-card {
-        padding: 3rem 2rem !important;
-    }
-    .seo-knowledge-section .glass-card > div {
-        grid-template-columns: 1fr !important;
-        gap: 3rem !important;
-    }
+.case-studies-archive .hero-content h1 {
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    margin-top: 1.5rem;
 }
+
+.case-studies-archive .hero-content p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.study-card {
+    transition: var(--transition-mid);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.study-card:hover {
+    border-color: var(--indigo-primary);
+    background: rgba(15, 23, 42, 0.6);
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.status-badge.b2b { color: var(--cyan-secondary); border-left: 3px solid var(--cyan-secondary); }
+.status-badge.saas { color: var(--indigo-primary); border-left: 3px solid var(--indigo-primary); }
+.status-badge.viral { color: var(--purple-accent); border-left: 3px solid var(--purple-accent); }
+.status-badge.ai { color: #fff; border-left: 3px solid #fff; }
