@@ -3307,3 +3307,55 @@ body.user-website .footer-logo-brand span {
 .status-badge.saas { color: var(--indigo-primary); border-left: 3px solid var(--indigo-primary); }
 .status-badge.viral { color: var(--purple-accent); border-left: 3px solid var(--purple-accent); }
 .status-badge.ai { color: #fff; border-left: 3px solid #fff; }
+
+/* --- Archive Divider & List --- */
+.more-studies-divider {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin: 100px 0 60px;
+}
+
+.more-studies-divider .line {
+    flex-grow: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+}
+
+.more-studies-divider span {
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.archive-items-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.archive-items-flex a {
+    padding: 10px 24px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 99px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition-mid);
+}
+
+.archive-items-flex a:hover {
+    background: rgba(14, 165, 233, 0.1);
+    border-color: var(--cyan-secondary);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
