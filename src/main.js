@@ -49,10 +49,10 @@ window.applyServiceGlobal = (service) => {
 
     // 1. Remove any old service classes from body
     document.body.classList.remove('user-seo', 'user-website');
-    
+
     // 2. Add the new service class
     document.body.classList.add(`user-${service}`);
-    
+
     // 3. Update dynamic text elements
     const logoText = document.getElementById('logoText');
     const footerLogoText = document.getElementById('footerLogoText');
@@ -90,10 +90,10 @@ window.applyServiceGlobal = (service) => {
 window.selectService = (service) => {
     localStorage.setItem('selectedService', service);
     const modal = document.getElementById('serviceModal');
-    
+
     // Determine the base URL for the selected service
     const baseUrl = service === 'website' ? '/web-design-service' : '/seo-service';
-    
+
     // Detect current page suffix for seamless transition
     const currentPath = window.location.pathname;
     let pageSuffix = currentPath.split('/').pop();
@@ -107,7 +107,7 @@ window.selectService = (service) => {
     if (typeof gsap !== 'undefined' && modal) {
         gsap.to(modal, {
             opacity: 0,
-            duration: 0.5,
+            duration: 1,
             onComplete: () => {
                 modal.classList.remove('active');
                 modal.remove(); // Clean up from DOM
@@ -163,7 +163,7 @@ const injectServiceModal = () => {
 
     document.body.insertAdjacentHTML('beforeend', modalHTML);
     const modal = document.getElementById('serviceModal');
-    
+
     // Add Mouse Glow Logic
     modal.addEventListener('mousemove', (e) => {
         const cards = modal.querySelectorAll('.option-card');
@@ -185,7 +185,7 @@ const injectServiceModal = () => {
                     scale: 0.9,
                     y: 40,
                     opacity: 0,
-                    duration: 1.2,
+                    duration: 1,
                     ease: 'expo.out'
                 });
                 gsap.from(modal.querySelectorAll('.option-card'), {
@@ -207,19 +207,27 @@ function initAnimations() {
 
     gsap.registerPlugin(ScrollTrigger);
 
-    // Initial state setup
-    gsap.set('.reveal-up', { opacity: 0, y: 30 });
-
     // Reveal elements on scroll
-    ScrollTrigger.batch('.reveal-up', {
+    ScrollTrigger.batch('.reveal-up, .reveal-left, .reveal-right', {
         onEnter: (elements) => {
-            gsap.to(elements, {
-                opacity: 1,
-                y: 0,
-                duration: 0.8,
-                stagger: 0.15,
-                ease: 'power3.out',
-                overwrite: true
+            elements.forEach((el) => {
+                let x = 0, y = 0;
+                if (el.classList.contains('reveal-left')) x = -60;
+                if (el.classList.contains('reveal-right')) x = 60;
+                if (el.classList.contains('reveal-up')) y = 40;
+
+                gsap.fromTo(el, {
+                    opacity: 0,
+                    x: x,
+                    y: y
+                }, {
+                    opacity: 1,
+                    x: 0,
+                    y: 0,
+                    duration: 1,
+                    ease: 'power3.out',
+                    overwrite: true
+                });
             });
         },
         start: 'top 85%',
@@ -272,7 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. Force Selection on Index Page Reload
     const isRoot = pathname === '/' || pathname === 'index.html';
-    
+
     if (isRoot) {
         injectServiceModal();
         if (currentService) applyServiceGlobal(currentService);
@@ -283,19 +291,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // 3. Update all links to be dashboard aware
     const prefix = currentService === 'website' ? '/web-design-service' : '/seo-service';
     const allLinks = document.querySelectorAll('a[href]:not([href^="#"]):not([href^="http"]):not(.logo-mini):not(.logo)');
-    
+
     allLinks.forEach(link => {
         let href = link.getAttribute('href');
         if (href === 'index.html' || href === '/') {
             link.setAttribute('href', prefix);
             return;
         }
-        
+
         // Map common pages to their SEO/Web aliases
         let page = href.replace('.html', '');
         if (page === 'case-studies') page = 'casestudies';
         if (page === 'about') page = 'aboutus';
-        
+
         link.setAttribute('href', `${prefix}/${page}`);
     });
 
@@ -332,17 +340,17 @@ function initBlogFilters() {
             const title = post.querySelector('h3').textContent.toLowerCase();
             const content = post.querySelector('p').textContent.toLowerCase();
             const textMatch = title.includes(searchTerm) || content.includes(searchTerm);
-            
+
             // Basic tag logic
-            const tagMatch = activeTag === 'all insights' || 
-                             title.includes(activeTag) || 
+            const tagMatch = activeTag === 'all insights' ||
+                             title.includes(activeTag) ||
                              content.includes(activeTag) ||
                              searchTerm.includes(activeTag);
 
             if (textMatch && tagMatch) {
                 if (post.style.display === 'none') {
                     post.style.display = 'flex';
-                    gsap.fromTo(post, {opacity: 0, y: 20}, {opacity: 1, y: 0, duration: 0.4});
+                    gsap.fromTo(post, {opacity: 0, y: 20}, {opacity: 1, y: 0, duration: 1});
                 }
             } else {
                 post.style.display = 'none';
@@ -368,7 +376,7 @@ function initBlogFilters() {
  */
 function initCarouselNavs() {
     const containers = document.querySelectorAll('.carousel-container');
-    
+
     containers.forEach(container => {
         const track = container.querySelector('.marquee-track');
         if (!track) return;
@@ -377,7 +385,7 @@ function initCarouselNavs() {
         const prevBtn = document.createElement('button');
         prevBtn.className = 'carousel-nav-btn prev';
         prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
-        
+
         const nextBtn = document.createElement('button');
         nextBtn.className = 'carousel-nav-btn next';
         nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
@@ -406,17 +414,16 @@ document.addEventListener('DOMContentLoaded', () => {
     initCarouselNavs();
 });
 
-
 /**
  * Global Dashboard Toggle
  */
 window.toggleService = () => {
     const current = localStorage.getItem('selectedService') || 'seo';
     const next = current === 'seo' ? 'website' : 'seo';
-    
+
     // Determine the base URL for the selected service
     const baseUrl = next === 'website' ? '/web-design-service' : '/seo-service';
-    
+
     // Detect current page suffix for seamless transition
     const currentPath = window.location.pathname;
     let pageSuffix = currentPath.split('/').pop();
