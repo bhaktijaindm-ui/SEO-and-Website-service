@@ -1,11 +1,20 @@
-# Robot.txt for www.seoandwebsiteservice.com
-# Allowing all search engines to crawl all clean dashboard routes
+# robots.txt for https://www.seoandwebsiteservice.com/
+
+# 1. ALLOW SEARCH ENGINES (Priority)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
 User-agent: *
 Allow: /
-Allow: /seo-service/
-Allow: /web-design-service/
+Disallow:
 
-# Blocking major AI scraping bots that ingest training data (standard best practice)
+# 2. BLOCK AI SCRAPERS & AGGRESSIVE BOTS (Best Practice)
 User-agent: GPTBot
 Disallow: /
 
@@ -36,6 +45,9 @@ Disallow: /
 User-agent: Meta-ExternalAgent
 Disallow: /
 
-# Host & Sitemap
-Host: https://www.seoandwebsiteservice.com
+User-agent: Amazonbot
+Disallow: /
+
+# 3. SITE STRUCTURE
+Host: www.seoandwebsiteservice.com
 Sitemap: https://www.seoandwebsiteservice.com/sitemap.xml
