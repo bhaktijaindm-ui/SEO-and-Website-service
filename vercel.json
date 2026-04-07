@@ -20,6 +20,7 @@
     { "source": "/web-design-service/blog", "destination": "/blog" },
     { "source": "/web-design-service/contact", "destination": "/contact" },
     { "source": "/web-design-service/testimonials", "destination": "/testimonials" },
-    { "source": "/web-design-service/case-:slug", "destination": "/case-:slug" }
+    { "source": "/web-design-service/case-:slug", "destination": "/case-:slug" },
+    { "source": "/web-design-service/:slug*", "destination": "/:slug*" }
   ]
 }
