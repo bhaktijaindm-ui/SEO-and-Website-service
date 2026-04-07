@@ -11,6 +11,7 @@
     { "source": "/seo-service/contact", "destination": "/contact" },
     { "source": "/seo-service/testimonials", "destination": "/testimonials" },
     { "source": "/seo-service/case-:slug", "destination": "/case-:slug" },
+    { "source": "/seo-service/:slug*", "destination": "/:slug*" },
     { "source": "/web-design-service", "destination": "/" },
     { "source": "/web-design-service/services", "destination": "/services" },
     { "source": "/web-design-service/casestudies", "destination": "/case-studies" },
