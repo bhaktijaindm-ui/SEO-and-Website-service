@@ -149,29 +149,50 @@ FOOTER = """
 </html>
 """
 
-# Category Content Definitions
-CATEGORIES = {
-    "SaaS": {
-        "hero_bg": "linear-gradient(135deg, #001a4d 0%, #0d0d0d 100%)",
-        "pills": """<span class="pill blue">🚀 +240% Growth</span><span class="pill blue">📈 1M+ Visitors</span><span class="pill yellow">💰 High ROI</span>""",
-        "body": """<h2>Building a Sustainable Growth Moat</h2><p>The SaaS landscape is ultra-competitive. We moved away from generic 'how-to' guides to high-intent comparison and alternative pages that capture users at the point of purchase.</p><h3>Key Methodologies</h3><div class="step-list"><div class="step-item"><div class="step-num">01</div><div class="step-content"><strong>Topical Authority SILOs</strong>: Clustering content around core product features to build niche dominance.</div></div><div class="step-item"><div class="step-num">02</div><div class="step-content"><strong>Product-led Content</strong>: Integrating product screenshots and tutorials to drive signups directly from search.</div></div></div>"""
-    },
-    "B2B": {
-        "hero_bg": "linear-gradient(135deg, #1a0033 0%, #0d0d0d 100%)",
-        "pills": """<span class="pill purple">💼 B2B Authority</span><span class="pill purple">🎯 Lead Gen Focus</span><span class="pill green">📈 +300% MQLs</span>""",
-        "body": """<h2>Scaling Enterprise Lead Generation</h2><p>B2B SEO isn't just about traffic; it's about the RIGHT traffic. We focused on bottom-of-funnel keywords that target decision-makers at Fortune 500 companies.</p><h3>Phase Strategy</h3><div class="step-list"><div class="step-item"><div class="step-num">01</div><div class="step-content"><strong>Intent Mapping</strong>: Separating 'educational' queries from 'buying' queries to prioritize revenue.</div></div><div class="step-item"><div class="step-num">02</div><div class="step-content"><strong>Authority Link Building</strong>: Earning placements in top-tier industry publications and digital journals.</div></div></div>"""
-    },
-    "Viral": {
-        "hero_bg": "linear-gradient(135deg, #002222 0%, #0d0d0d 100%)",
-        "pills": """<span class="pill cyan">🎨 Viral Growth</span><span class="pill cyan">🔥 150K Signups</span><span class="pill yellow">⭐ DR 80+ Auth</span>""",
-        "body": """<h2>Harnessing Visual Content for SEO</h2><p>Visual assets are often overlooked in SEO. We turned infographics and design templates into a massive link-earning engine that lowered CAC by 60%.</p><h3>Growth Pillars</h3><div class="step-list"><div class="step-item"><div class="step-num">01</div><div class="step-content"><strong>Graphic Asset SEO</strong>: Optimized every visual for Google Image search, driving secondary traffic streams.</div></div><div class="step-item"><div class="step-num">02</div><div class="step-content"><strong>Viral Outreach</strong>: Using data-driven visuals to earn features on high-authority design and tech blogs.</div></div></div>"""
-    },
-    "AI": {
-        "hero_bg": "linear-gradient(135deg, #2a0a00 0%, #0d0d0d 100%)",
-        "pills": """<span class="pill orange">🤖 AI-Native SEO</span><span class="pill orange">⚡ Fast Indexing</span><span class="pill yellow">🏆 #1 for Trends</span>""",
-        "body": """<h2>Dominating the AI Search Ecosystem</h2><p>As search shifts toward AI and LLMs, we adapted our strategy to ensure visibility in AI-generated responses (AIO) and traditional rankings alike.</p><h3>Tech Framework</h3><div class="step-list"><div class="step-item"><div class="step-num">01</div><div class="step-content"><strong>Semantic Optimization</strong>: Using LLM-friendly structures to ensure search engines understand entities and intent.</div></div><div class="step-item"><div class="step-num">02</div><div class="step-content"><strong>Real-time Trend Capture</strong>: Scaling content production to rank for emerging AI queries within hours of launch.</div></div></div>"""
-    }
-}
+# --- CLAUDE AI INTEGRATION ---
+import requests
+
+def get_claude_content(case_name, category, keywords):
+    """
+    Calls Claude to generate unique, high-value SEO playbook content.
+    """
+    api_key = os.getenv("ANTHROPIC_API_KEY")
+    if not api_key:
+        print(f"Skipping Claude for {case_name}: No API key found.")
+        return None
+
+    prompt = f"""
+    You are an elite SEO strategist. Write a high-performance SEO Playbook for a case study about '{case_name}' ({category}).
+    Include these keywords naturally: {', '.join(keywords)}.
+    
+    Structure the output as HTML:
+    1. A single <h2> heading describing the core growth moat.
+    2. A technical <p> paragraph about the strategy.
+    3. An <h3> heading 'Phase Strategy' or 'Growth Framework'.
+    4. A <div class="step-list"> with two <div class="step-item"> blocks.
+       Inside each step-item, use <div class="step-num"> (01, 02) and <div class="step-content"><strong>title</strong>: description.
+    
+    Style: Cinematic, data-driven, and authoritative.
+    """
+
+    try:
+        url = "https://api.anthropic.com/v1/messages"
+        headers = {
+            "x-api-key": api_key,
+            "anthropic-version": "2023-06-01",
+            "content-type": "application/json"
+        }
+        data = {
+            "model": "claude-3-5-sonnet-20240620",
+            "max_tokens": 1500,
+            "messages": [{"role": "user", "content": prompt}]
+        }
+        resp = requests.post(url, headers=headers, json=data)
+        resp.raise_for_status()
+        return resp.json()['content'][0]['text']
+    except Exception as e:
+        print(f"Claude Error: {e}")
+        return None
 
 # Mapping filenames to titles and categories
 FILES = {
@@ -179,7 +200,7 @@ FILES = {
     "case-ahrefs.html": ("Ahrefs | Tool-First SEO Strategy", "SaaS"),
     "case-scribe.html": ("Scribe | 0 to 131K Monthly Visitors", "SaaS"),
     "case-typeform.html": ("Typeform | $3M Revenue Flywheel", "SaaS"),
-    "case-daycare.html": ("London Daycare | £13.5M Local Strategy", "B2B"), # Reusing B2B for local feel
+    "case-daycare.html": ("London Daycare | £13.5M Local Strategy", "B2B"),
     "case-supermetrics.html": ("Supermetrics | $50M ARR Scaling", "SaaS"),
     "case-venngage.html": ("Venngage | Viral Link Building Machine", "Viral"),
     "case-preply.html": ("Preply | 3.8M visitors global scale", "B2B"),
@@ -209,34 +230,50 @@ FILES = {
     "case-detailed.html": ("Detailed | Blue-Chip Link Building", "SaaS")
 }
 
-# Categorize and standardize every case study file in the dictionary
-# This ensures that even if files don't exist yet, they are created with premium content.
+# Category Fallback Definitions
+CATEGORIES = {
+    "SaaS": {
+        "hero_bg": "linear-gradient(135deg, #001a4d 0%, #0d0d0d 100%)",
+        "pills": """<span class="pill blue">🚀 +240% Growth</span><span class="pill blue">📈 1M+ Visitors</span>""",
+        "body": """<h2>Generic SaaS Strategy</h2><p>Default template content.</p>"""
+    },
+    "B2B": {
+        "hero_bg": "linear-gradient(135deg, #1a0033 0%, #0d0d0d 100%)",
+        "pills": """<span class="pill purple">💼 B2B Authority</span>""",
+        "body": """<h2>Generic B2B Strategy</h2><p>Default template content.</p>"""
+    },
+    "Viral": {
+        "hero_bg": "linear-gradient(135deg, #002222 0%, #0d0d0d 100%)",
+        "pills": """<span class="pill cyan">🎨 Viral Growth</span>""",
+        "body": """<h2>Generic Viral Strategy</h2><p>Default template content.</p>"""
+    },
+    "AI": {
+        "hero_bg": "linear-gradient(135deg, #2a0a00 0%, #0d0d0d 100%)",
+        "pills": """<span class="pill orange">🤖 AI-Native SEO</span>""",
+        "body": """<h2>Generic AI Strategy</h2><p>Default template content.</p>"""
+    }
+}
+
 import glob
 filenames_to_process = list(set(list(FILES.keys()) + glob.glob("case-*.html")))
 
 for filename in filenames_to_process:
     if filename == "case-studies.html":
-        continue # Skip the index page for this layout
+        continue
 
-    # Logic for selecting title and category
     if filename in FILES:
         title_text, cat = FILES[filename]
     else:
-        # Infer properties for unknown files
         title_text = filename.replace("case-", "").replace(".html", "").title().replace("-", " ")
-        if any(w in filename.lower() for w in ["ai", "bot", "openai", "surfer"]):
-            cat = "AI"
-        elif any(w in filename.lower() for w in ["design", "viral", "branding", "canva", "venngage"]):
-            cat = "Viral"
-        elif any(w in filename.lower() for w in ["b2b", "enterprise", "hubspot", "monday"]):
-            cat = "B2B"
-        else:
-            cat = "SaaS"
+        cat = "SaaS"
     
-    cat_data = CATEGORIES[cat]
+    cat_data = CATEGORIES.get(cat, CATEGORIES["SaaS"])
     h1_main = title_text.split('|')[0].strip()
     
-    # Assembly
+    # Try to get unique body content from Claude
+    unique_body = get_claude_content(h1_main, cat, ["SEO ranking", "technical SEO", "conversion"])
+    body_content = unique_body if unique_body else cat_data["body"]
+    
     html_content = (
         HEAD.format(
             title=f"{title_text} | Portfolio",
@@ -249,16 +286,13 @@ for filename in filenames_to_process:
         ) +
         STRUCTURE.format(
             pills=cat_data["pills"],
-            body_content=cat_data["body"]
+            body_content=body_content
         ) +
         FOOTER
     )
     
-    # Enforce UTF-8 symbol rendering
-    html_content = html_content.encode('utf-8').decode('utf-8')
-    
     with open(filename, 'w', encoding='utf-8') as f:
         f.write(html_content)
-    print(f"Generated/Standardized: {filename}")
+    print(f"Generated/Standardized: {filename} {'(with Claude AI ✨)' if unique_body else '(template fallback)'}")
 
-print(f"Site-wide standardization execution complete. Processed {len(filenames_to_process)} pages.")
+print(f"\nSite-wide standardization execution complete. Processed {len(filenames_to_process)} pages.")

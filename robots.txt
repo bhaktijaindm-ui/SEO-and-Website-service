@@ -1,6 +1,45 @@
 # robots.txt for https://www.seoandwebsiteservice.com/
 
-# 1. ALLOW SEARCH ENGINES (Priority)
+# 1. ALLOW ALL SEARCH ENGINES & AI AGENTS (Maximum Visibility)
+User-agent: *
+Allow: /
+Disallow:
+
+# 2. EXPLICIT PERMISSIONS FOR AI TOOLS (Ensuring AI-Native Optimization)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Bot
+Allow: /
+
+User-agent: ClaudeWeb
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# 3. EXPLICIT PERMISSIONS FOR GOOGLE / BING / YANDEX (Standard Crawlers)
 User-agent: Googlebot
 Allow: /
 
@@ -10,44 +49,6 @@ Allow: /
 User-agent: Yandex
 Allow: /
 
-User-agent: *
-Allow: /
-Disallow:
-
-# 2. BLOCK AI SCRAPERS & AGGRESSIVE BOTS (Best Practice)
-User-agent: GPTBot
-Disallow: /
-
-User-agent: ChatGPT-User
-Disallow: /
-
-User-agent: Claude-Bot
-Disallow: /
-
-User-agent: ClaudeWeb
-Disallow: /
-
-User-agent: Google-Extended
-Disallow: /
-
-User-agent: CCBot
-Disallow: /
-
-User-agent: PerplexityBot
-Disallow: /
-
-User-agent: YouBot
-Disallow: /
-
-User-agent: cohere-ai
-Disallow: /
-
-User-agent: Meta-ExternalAgent
-Disallow: /
-
-User-agent: Amazonbot
-Disallow: /
-
-# 3. SITE STRUCTURE
+# 4. SITE ARCHITECTURE & SITEMAPS
 Host: www.seoandwebsiteservice.com
 Sitemap: https://www.seoandwebsiteservice.com/sitemap.xml
