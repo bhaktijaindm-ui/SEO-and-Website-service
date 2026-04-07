@@ -3561,13 +3561,14 @@ body.user-website .footer-logo-brand span {
 }
 
 .giant-text.reveal-stroke {
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.05);
+    -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.12) !important;
     color: transparent;
     font-size: clamp(4rem, 15vw, 12rem);
     font-weight: 900;
     text-align: center;
     pointer-events: none;
-    margin-top: 2rem;
+    margin-top: 4rem;
+    opacity: 0.5;
 }
 
 @media (max-width: 992px) {
@@ -3614,9 +3615,14 @@ body.user-website .footer-logo-brand span {
         margin: 0 !important;
     }
     .giant-text.reveal-stroke {
-        font-size: 20vw;
-        letter-spacing: -2px;
-        opacity: 0.2;
+        font-size: 14vw !important; /* Adjusted to fit 'SEO EXPERT' on one line */
+        letter-spacing: -1px;
+        opacity: 0.3;
+        white-space: nowrap !important;
+        width: 100%;
+        text-align: center;
+        display: block;
+        margin-top: 1rem;
     }
     .disclaimer-box {
         font-size: 0.8rem;
