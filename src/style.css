@@ -1577,16 +1577,17 @@ section {
         display: flex;
         position: fixed;
         top: 0; left: 0; width: 100%; height: 100vh;
-        background: rgba(5, 7, 13, 0.98);
+        background: #030509; /* Solid deep bg for mobile menu */
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 2.5rem;
+        gap: 3rem;
         transform: translateY(-100%);
         transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         visibility: hidden;
         opacity: 0;
         pointer-events: none;
+        z-index: 9999; /* Higher than rest but below close btn */
     }
 
     .sticky-nav.mobile-active .nav-links {
@@ -1596,7 +1597,12 @@ section {
         pointer-events: auto;
     }
 
-    .nav-links a { font-size: 1.5rem; color: #fff; }
+    .nav-links a { 
+        font-size: 2rem !important; 
+        color: #fff !important; 
+        font-weight: 800;
+        letter-spacing: -1px;
+    }
     .nav-cta { display: none; }
 }
 
