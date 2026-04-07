@@ -3520,20 +3520,20 @@ body.user-website .footer-logo-brand span {
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
     gap: 4rem;
-    margin-bottom: 6rem;
+    margin-bottom: 2rem; /* Reduced from 6rem */
 }
 
 .footer-links h4 {
     font-size: 1.1rem;
     font-weight: 800;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem; /* Reduced from 2rem */
     color: #fff;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 
 .footer-links ul li {
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem; /* Reduced from 1rem */
 }
 
 .footer-links a {
@@ -3551,7 +3551,7 @@ body.user-website .footer-logo-brand span {
 /* Ensure Logo in Footer is Premium */
 .footer-brand .logo img {
     height: 65px;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem; /* Reduced from 2rem */
 }
 
 /* Ensure Connect Icons are Visible */
@@ -3567,7 +3567,7 @@ body.user-website .footer-logo-brand span {
     font-weight: 900;
     text-align: center;
     pointer-events: none;
-    margin-top: 4rem;
+    margin-top: 1rem; /* Significantly reduced space */
     opacity: 0.5;
 }
 
