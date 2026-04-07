@@ -1560,6 +1560,7 @@ section {
     .nav-capsule {
         padding: 0.3rem 1.2rem;
         width: 92%;
+        overflow: visible !important; /* CRITICAL: Prevent clipping of mobile links */
     }
 
     .mobile-menu-btn {
@@ -1570,7 +1571,7 @@ section {
         color: #fff !important;
         width: 40px;
         height: 40px;
-        z-index: 10001;
+        z-index: 10001; /* Above Nav Overlay */
     }
 
     .nav-links {
@@ -1587,7 +1588,7 @@ section {
         visibility: hidden;
         opacity: 0;
         pointer-events: none;
-        z-index: 9999; /* Higher than rest but below close btn */
+        z-index: 10000; /* Just below Close Button */
     }
 
     .sticky-nav.mobile-active .nav-links {
