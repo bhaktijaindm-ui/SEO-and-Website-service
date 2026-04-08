@@ -109,9 +109,8 @@
 
                 <div class="contact-form-wrapper glass-card reveal-up">
 
-                    <form id="contact-form" action="https://formspree.io/f/bhaktijaindm@gmail.com" method="POST">
-
-                        <input type="hidden" name="_next" value="https://www.seoandwebsiteservice.com/thank-you">
+                    <form id="contact-form" action="/api/contact" method="POST">
+                        <input type="hidden" id="plan_input" name="plan" value="None">
 
                         <div class="form-grid">
 
@@ -322,7 +321,10 @@
             if (plan) {
                 const serviceSelect = document.getElementById('service');
                 const messageArea = document.getElementById('message');
+                const planInput = document.getElementById('plan_input');
                 
+                if (planInput) planInput.value = plan;
+
                 if (plan.includes('seo')) {
                     serviceSelect.value = 'seo';
                     messageArea.placeholder = `I am interested in the ${plan.replace('seo-', '')} SEO plan. Please share the next steps.`;

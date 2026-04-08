@@ -1,0 +1,13 @@
+{
+  "name": "seo-and-website-service",
+  "version": "1.0.0",
+  "description": "Professional Portfolio with Inbuilt Contact API",
+  "main": "index.html",
+  "dependencies": {
+    "resend": "^3.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "npx serve ."
+  }
+}
