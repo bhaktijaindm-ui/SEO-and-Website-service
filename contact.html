@@ -111,6 +111,8 @@
 
                     <form id="contact-form" action="https://formspree.io/f/bhaktijaindm@gmail.com" method="POST">
 
+                        <input type="hidden" name="_next" value="https://www.seoandwebsiteservice.com/thank-you">
+
                         <div class="form-grid">
 
                             <div class="form-group text-left">
@@ -313,6 +315,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
 
     <script src="/src/main.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const plan = params.get('plan');
+            if (plan) {
+                const serviceSelect = document.getElementById('service');
+                const messageArea = document.getElementById('message');
+                
+                if (plan.includes('seo')) {
+                    serviceSelect.value = 'seo';
+                    messageArea.placeholder = `I am interested in the ${plan.replace('seo-', '')} SEO plan. Please share the next steps.`;
+                } else if (plan.includes('web')) {
+                    serviceSelect.value = 'web-design';
+                    messageArea.placeholder = `I am interested in the ${plan.replace('web-', '')} Web Design plan. Let's discuss building my site.`;
+                }
+            }
+        });
+    </script>
 
 </body>
 
