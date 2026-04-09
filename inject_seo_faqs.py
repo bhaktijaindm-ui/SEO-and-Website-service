@@ -1,12 +1,14 @@
 import os
 import re
+import json
 
 # Main SEO Dashboard pages
 main_pages = [
     "index.html", "services.html", "about.html", "blog.html", "pricing.html", 
     "testimonials.html", "case-studies.html", "case-monday.html", "case-ahrefs.html",
     "case-notion.html", "case-typeform.html", "case-scribe.html", "case-canva.html",
-    "case-openai.html", "case-surfer.html", "case-intercom.html", "case-adobe.html"
+    "case-openai.html", "case-surfer.html", "case-intercom.html", "case-adobe.html",
+    "affordable-seo-services.html", "ai-search-seo-strategy.html", "blog-core-web-vitals.html"
 ]
 
 faqs_10 = [
@@ -30,7 +32,8 @@ faqs_5_case = [
     ("How does this success relate to the broader seo meaning?", "Sustainable success means having an seo specialist who understands the best seo tools and how to navigate seo news, ensuring your wordpress seo and youtube seo are always current and performing.")
 ]
 
-def generate_faq_html(faq_list, title, is_dashboard=True):
+def generate_faq_html_and_schema(faq_list, title):
+    # HTML Generation
     badge = "FAQ"
     section_class = "seo-faq-section service-seo-content reveal-up"
     style = 'padding: 100px 0; border-top: 1px solid rgba(255,255,255,0.05);'
@@ -57,33 +60,56 @@ def generate_faq_html(faq_list, title, is_dashboard=True):
                 </div>
             </div>
         </section>"""
-    return html
 
-def inject(page, faq_html):
+    # Schema Generation
+    schema_data = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": []
+    }
+    for q, a in faq_list:
+        schema_data["mainEntity"].append({
+            "@type": "Question",
+            "name": q,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": a
+            }
+        })
+    
+    schema_script = f'\n    <!-- FAQ SCHEMA -->\n    <script type="application/ld+json">\n    {json.dumps(schema_data, indent=4)}\n    </script>\n'
+    
+    return html, schema_script
+
+def inject(page, faq_html, faq_schema):
     if not os.path.exists(page): return
     with open(page, "r", encoding="utf-8") as f: content = f.read()
     
-    # Remove existing FAQ section if any
-    content = re.sub(r'<!-- SEO FAQ.*?/section>', '', content, flags=re.DOTALL)
+    # Remove existing FAQ section and old Schema
     content = re.sub(r'<!-- DYNAMIC SEO FAQ.*?/section>', '', content, flags=re.DOTALL)
+    content = re.sub(r'<!-- FAQ SCHEMA.*?/script>', '', content, flags=re.DOTALL)
     
+    # Inject Schema in Head
+    if "</head>" in content:
+        content = content.replace("</head>", faq_schema + "</head>")
+    
+    # Inject HTML in Main
     if "</main>" in content:
-        new_content = content.replace("</main>", faq_html + "\n    </main>")
+        content = content.replace("</main>", faq_html + "\n    </main>")
     elif "<footer" in content:
-        new_content = content.replace("<footer", faq_html + "\n    <footer")
-    else: return
+        content = content.replace("<footer", faq_html + "\n    <footer")
     
-    with open(page, "w", encoding="utf-8") as f: f.write(new_content)
-    print(f"Updated FAQs on {page}.")
+    with open(page, "w", encoding="utf-8") as f: f.write(content)
+    print(f"Updated FAQs and Schema on {page}.")
 
 # Run it
-dashboard_html = generate_faq_html(faqs_10, "Common Questions About Our SEO Services")
-case_html = generate_faq_html(faqs_5_case, "Project Strategy & Success FAQ")
+dashboard_html, dashboard_schema = generate_faq_html_and_schema(faqs_10, "Common Questions About Our SEO Services")
+case_html, case_schema = generate_faq_html_and_schema(faqs_5_case, "Project Strategy & Success FAQ")
 
 for p in main_pages:
-    inject(p, dashboard_html)
+    inject(p, dashboard_html, dashboard_schema)
 
 all_case_files = [f for f in os.listdir(".") if f.startswith("case-") and f.endswith(".html")]
 for p in all_case_files:
     if p in main_pages: continue
-    inject(p, case_html)
+    inject(p, case_html, case_schema)
