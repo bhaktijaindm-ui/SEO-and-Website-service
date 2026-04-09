@@ -16,6 +16,28 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 <!-- Custom CSS -->
 <link href="/src/style.css" rel="stylesheet"/>
+<style>
+        /* Custom Flowchart adjustments for About page */
+        .project-flowchart .timeline-node {
+            margin-bottom: 6rem;
+        }
+        .project-flowchart .node-meta {
+            width: 44%;
+            text-align: right;
+            padding-right: 3rem;
+        }
+        .project-flowchart .timeline-node:nth-child(even) .node-meta {
+            text-align: left;
+            padding-left: 3rem;
+            padding-right: 0;
+        }
+        .project-flowchart .node-number {
+            font-size: 3rem;
+            font-weight: 900;
+            opacity: 0.1;
+            color: var(--cyan-secondary);
+        }
+    </style>
 </head>
 <body class="saas-theme about-page">
 <div class="glow-bg-top"></div>
@@ -48,318 +70,234 @@
 <div class="container text-center reveal-up">
 <span class="badge">Professional Profile</span>
 <h1>BHAKTI JAIN</h1>
-<p style="letter-spacing: 5px; font-weight: 700; color: var(--cyan-secondary); text-transform: uppercase; margin-bottom: 2rem;">
+<p style="letter-spacing: 5px; font-weight: 700; color: var(--cyan-secondary); text-transform: uppercase;">
                     SEO EXPERT AND WEBSITE DEVELOPER
                 </p>
-<div class="glass-card bio-card reveal-up" style="max-width: 900px; margin: 0 auto; padding: 3rem; text-align: left;">
+<div class="glass-card bio-card reveal-up" style="max-width: 900px; margin: 2rem auto; padding: 2.5rem; text-align: left; background: rgba(15, 23, 42, 0.4);">
 <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-main);">
-                        I work as an SEO Expert and Website Developer, focusing on building high-performance websites and improving their visibility on search engines. My expertise includes technical SEO, on-page optimization, website development, and performance optimization to ensure websites rank higher on search engines while providing a smooth and user-friendly experience. I handle the complete process from website development and structure planning to SEO implementation, keyword targeting, content optimization, and performance monitoring. My goal is to create fast, responsive, and search-optimized websites that help businesses increase organic traffic, generate leads, and improve overall online presence.
+                        I work as an SEO Expert and Website Developer, focusing on building high-performance websites and improving their visibility on search engines. My expertise includes technical SEO, on-page optimization, website development, and performance optimization. I handle the complete process from structure planning to performance monitoring, ensuring fast, responsive, and search-optimized digital products.
                     </p>
 </div>
 </div>
 </section>
-<!-- Skills Grid -->
-<section class="skills-section" style="padding: 100px 0;">
+<!-- Projects Section as Flowchart -->
+<section class="experience-flow-v2 project-flowchart" style="padding: 100px 0; overflow: hidden;">
 <div class="container">
 <div class="section-header text-center reveal-up">
-<span class="badge">Expertise</span>
-<h2>Technical Skill Stack</h2>
+<span class="badge">Project Flowchart</span>
+<h2>A Journey of Digital Excellence</h2>
+<p>Visualizing the progression of 10 high-impact real-world projects.</p>
 </div>
-<div class="grid-3 reveal-up">
-<!-- SEO Skills -->
-<div class="glass-card p-4">
-<i class="fas fa-search-chart" style="font-size: 2rem; color: var(--cyan-secondary); margin-bottom: 1.5rem; display: block;"></i>
-<h3>Search Optimization</h3>
-<ul style="list-style: none; padding: 0; color: var(--text-muted);">
-<li style="margin-bottom: 0.5rem;"><i class="fas fa-check-circle" style="color: var(--cyan-secondary); margin-right: 10px;"></i> On-Page &amp; Off-Page SEO</li>
-<li style="margin-bottom: 0.5rem;"><i class="fas fa-check-circle" style="color: var(--cyan-secondary); margin-right: 10px;"></i> GEO / Local SEO Optimization</li>
-<li style="margin-bottom: 0.5rem;"><i class="fas fa-check-circle" style="color: var(--cyan-secondary); margin-right: 10px;"></i> Keyword &amp; Competitor Analysis</li>
-<li style="margin-bottom: 0.5rem;"><i class="fas fa-check-circle" style="color: var(--cyan-secondary); margin-right: 10px;"></i> Technical SEO (Crawl/Index)</li>
-</ul>
-</div>
-<!-- Tools & Tracking -->
-<div class="glass-card p-4">
-<i class="fas fa-tools" style="font-size: 2rem; color: var(--purple-accent); margin-bottom: 1.5rem; display: block;"></i>
-<h3>SEO Tools &amp; Analytics</h3>
-<ul style="list-style: none; padding: 0; color: var(--text-muted);">
-<li style="margin-bottom: 0.5rem;"><i class="fas fa-check-circle" style="color: var(--purple-accent); margin-right: 10px;"></i> Search Console &amp; GA4</li>
-<li style="margin-bottom: 0.5rem;"><i class="fas fa-check-circle" style="color: var(--purple-accent); margin-right: 10px;"></i> Ahrefs, SEMrush, Moz</li>
-<li style="margin-bottom: 0.5rem;"><i class="fas fa-check-circle" style="color: var(--purple-accent); margin-right: 10px;"></i> Screaming Frog &amp; Ubersuggest</li>
-<li style="margin-bottom: 0.5rem;"><i class="fas fa-check-circle" style="color: var(--purple-accent); margin-right: 10px;"></i> Performance &amp; Conversion Tracking</li>
-</ul>
-</div>
-<!-- Web Dev -->
-<div class="glass-card p-4">
-<i class="fas fa-code" style="font-size: 2rem; color: #6366f1; margin-bottom: 1.5rem; display: block;"></i>
-<h3>Web Development</h3>
-<ul style="list-style: none; padding: 0; color: var(--text-muted);">
-<li style="margin-bottom: 0.5rem;"><i class="fas fa-check-circle" style="color: #6366f1; margin-right: 10px;"></i> HTML5, CSS3, WordPress, Shopify</li>
-<li style="margin-bottom: 0.5rem;"><i class="fas fa-check-circle" style="color: #6366f1; margin-right: 10px;"></i> Responsive Design &amp; Speed Opt</li>
-<li style="margin-bottom: 0.5rem;"><i class="fas fa-check-circle" style="color: #6366f1; margin-right: 10px;"></i> Theme Customization &amp; Builders</li>
-<li style="margin-bottom: 0.5rem;"><i class="fas fa-check-circle" style="color: #6366f1; margin-right: 10px;"></i> Security, Backup &amp; Migration</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<!-- Projects Section -->
-<section class="projects-portfolio" style="padding: 100px 0; background: rgba(0,0,0,0.2);">
-<div class="container">
-<div class="section-header text-center reveal-up">
-<span class="badge">Real Performance</span>
-<h2>Featured Projects Portfolio</h2>
-<p>End-to-end execution of SEO and development strategies across diverse industries.</p>
-</div>
-<div class="projects-grid reveal-up" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+<div class="timeline-v2">
 <!-- Project 1 -->
-<div class="glass-card project-card">
-<span class="step-number">01</span>
-<div class="p-4">
+<div class="timeline-node reveal-up">
+<div class="node-meta">
+<span class="node-number">01</span>
 <h3 style="color: var(--cyan-secondary);">XCODERS</h3>
-<p class="tag" style="font-size: 0.8rem; opacity: 0.7; margin-bottom: 1rem;">SEO / WORDPRESS</p>
-<p style="font-size: 0.9rem; margin-bottom: 1.5rem;">Optimized enterprise-level web agencies for worldwide search dominance. Focused on technical infrastructure and keyword positioning.</p>
-<div class="contributions">
-<h4 style="font-size: 0.9rem; margin-bottom: 0.5rem;">Key Contributions:</h4>
-<ul style="font-size: 0.85rem; color: var(--text-muted); list-style: none; padding: 0;">
-<li><i class="fas fa-plus"></i> Integrated SEO best practices into initial design</li>
-<li><i class="fas fa-plus"></i> Competitive keyword mapping &amp; gap analysis</li>
-<li><i class="fas fa-plus"></i> Monitored SERP rankings &amp; ROI reports</li>
-</ul>
+<p style="font-size: 0.8rem; font-weight: 700; opacity: 0.6;">SEO / WORDPRESS</p>
 </div>
+<div class="node-content glass-card p-4">
+<p style="font-size: 0.95rem; margin-bottom: 1rem;">Optimized enterprise-level web agencies for worldwide search dominance. Focused on technical infrastructure and keyword positioning.</p>
+<ul style="font-size: 0.85rem; color: var(--text-muted); list-style: none; padding: 0;">
+<li style="margin-bottom: 5px;"><i class="fas fa-check" style="color: var(--cyan-secondary); margin-right: 8px;"></i> Integrated SEO best practices into initial design</li>
+<li style="margin-bottom: 5px;"><i class="fas fa-check" style="color: var(--cyan-secondary); margin-right: 8px;"></i> Competitive keyword mapping &amp; gap analysis</li>
+</ul>
 </div>
 </div>
 <!-- Project 2 -->
-<div class="glass-card project-card">
-<span class="step-number">02</span>
-<div class="p-4">
-<h3 style="color: var(--cyan-secondary);">MORNING STAR SCHOOL</h3>
-<p class="tag" style="font-size: 0.8rem; opacity: 0.7; margin-bottom: 1rem;">SEO / WORDPRESS</p>
-<p style="font-size: 0.9rem; margin-bottom: 1.5rem;">Local SEO dominance for an educational institution in Ratlam. Improved visibility for prospective admissions and community engagement.</p>
-<div class="contributions">
-<h4 style="font-size: 0.9rem; margin-bottom: 0.5rem;">Key Contributions:</h4>
-<ul style="font-size: 0.85rem; color: var(--text-muted); list-style: none; padding: 0;">
-<li><i class="fas fa-plus"></i> Local Search visibility for "near me" admissions</li>
-<li><i class="fas fa-plus"></i> Website performance &amp; speed enhancements</li>
-<li><i class="fas fa-plus"></i> Informative content layout optimization</li>
-</ul>
+<div class="timeline-node reveal-up">
+<div class="node-meta">
+<span class="node-number">02</span>
+<h3 style="color: var(--indigo-primary);">MORNING STAR</h3>
+<p style="font-size: 0.8rem; font-weight: 700; opacity: 0.6;">SEO / WORDPRESS</p>
 </div>
+<div class="node-content glass-card p-4">
+<p style="font-size: 0.95rem; margin-bottom: 1rem;">Local SEO dominance for an educational institution in Ratlam. Improved visibility for prospective admissions.</p>
+<ul style="font-size: 0.85rem; color: var(--text-muted); list-style: none; padding: 0;">
+<li style="margin-bottom: 5px;"><i class="fas fa-check" style="color: var(--indigo-primary); margin-right: 8px;"></i> Local Search visibility for "near me" admissions</li>
+<li style="margin-bottom: 5px;"><i class="fas fa-check" style="color: var(--indigo-primary); margin-right: 8px;"></i> Website performance &amp; speed enhancements</li>
+</ul>
 </div>
 </div>
 <!-- Project 3 -->
-<div class="glass-card project-card">
-<span class="step-number">03</span>
-<div class="p-4">
+<div class="timeline-node reveal-up">
+<div class="node-meta">
+<span class="node-number">03</span>
 <h3 style="color: var(--cyan-secondary);">FOODBIZ MELBOURNE</h3>
-<p class="tag" style="font-size: 0.8rem; opacity: 0.7; margin-bottom: 1rem;">SEO / WORDPRESS</p>
-<p style="font-size: 0.9rem; margin-bottom: 1.5rem;">Search optimization for a wholesale food distributor in Victoria, Australia. Focused on B2B lead generation via organic search.</p>
-<div class="contributions">
-<h4 style="font-size: 0.9rem; margin-bottom: 0.5rem;">Key Contributions:</h4>
-<ul style="font-size: 0.85rem; color: var(--text-muted); list-style: none; padding: 0;">
-<li><i class="fas fa-plus"></i> Wholesale intent keyword mapping</li>
-<li><i class="fas fa-plus"></i> Technical site structure &amp; Meta optimization</li>
-<li><i class="fas fa-plus"></i> bounce rate reduction via UX improvements</li>
-</ul>
-<a href="https://foodbizzmelbourne.com.au/" style="display: block; margin-top: 1rem; color: var(--cyan-secondary); font-size: 0.8rem;" target="_blank">View Link <i class="fas fa-external-link-alt"></i></a>
+<p style="font-size: 0.8rem; font-weight: 700; opacity: 0.6;">SEO / WORDPRESS</p>
 </div>
+<div class="node-content glass-card p-4">
+<p style="font-size: 0.95rem; margin-bottom: 1rem;">Search optimization for a wholesale food distributor in Victoria, Australia. B2B lead generation via organic search.</p>
+<ul style="font-size: 0.85rem; color: var(--text-muted); list-style: none; padding: 0;">
+<li style="margin-bottom: 5px;"><i class="fas fa-check" style="color: var(--cyan-secondary); margin-right: 8px;"></i> Wholesale intent keyword mapping</li>
+<li style="margin-bottom: 5px;"><i class="fas fa-check" style="color: var(--cyan-secondary); margin-right: 8px;"></i> Technical site structure &amp; Meta optimization</li>
+</ul>
 </div>
 </div>
 <!-- Project 4 -->
-<div class="glass-card project-card">
-<span class="step-number">04</span>
-<div class="p-4">
-<h3 style="color: var(--cyan-secondary);">TELESCOPE EXPERT</h3>
-<p class="tag" style="font-size: 0.8rem; opacity: 0.7; margin-bottom: 1rem;">BLOG / BACKLINK</p>
-<p style="font-size: 0.9rem; margin-bottom: 1.5rem;">Ranked competing product-based terms for "Best Telescope in India". High-authority blog execution with intent mapping.</p>
-<div class="contributions">
-<h4 style="font-size: 0.9rem; margin-bottom: 0.5rem;">Key Contributions:</h4>
-<ul style="font-size: 0.85rem; color: var(--text-muted); list-style: none; padding: 0;">
-<li><i class="fas fa-plus"></i> Contextual backlink building strategy</li>
-<li><i class="fas fa-plus"></i> SEO content flow &amp; Readability (UX)</li>
-<li><i class="fas fa-plus"></i> Secondary keyword (LSI) positioning</li>
-</ul>
+<div class="timeline-node reveal-up">
+<div class="node-meta">
+<span class="node-number">04</span>
+<h3 style="color: var(--indigo-primary);">TELESCOPE EXPERT</h3>
+<p style="font-size: 0.8rem; font-weight: 700; opacity: 0.6;">BLOG / BACKLINK</p>
 </div>
+<div class="node-content glass-card p-4">
+<p style="font-size: 0.95rem; margin-bottom: 1rem;">Ranked competing product-based terms for "Best Telescope in India". High-authority blog execution.</p>
+<ul style="font-size: 0.85rem; color: var(--text-muted); list-style: none; padding: 0;">
+<li style="margin-bottom: 5px;"><i class="fas fa-check" style="color: var(--indigo-primary); margin-right: 8px;"></i> Contextual backlink building strategy</li>
+<li style="margin-bottom: 5px;"><i class="fas fa-check" style="color: var(--indigo-primary); margin-right: 8px;"></i> SEO content flow &amp; Readability</li>
+</ul>
 </div>
 </div>
 <!-- Project 5 -->
-<div class="glass-card project-card">
-<span class="step-number">05</span>
-<div class="p-4">
-<h3 style="color: var(--cyan-secondary);">FOOTBALL TURFS</h3>
-<p class="tag" style="font-size: 0.8rem; opacity: 0.7; margin-bottom: 1rem;">SEO / WEBSITE</p>
-<p style="font-size: 0.9rem; margin-bottom: 1.5rem;">Venus Sports Arena optimization to facilitate easy facility discovery and professional infrastructure bookings.</p>
-<div class="contributions">
-<h4 style="font-size: 0.9rem; margin-bottom: 0.5rem;">Key Contributions:</h4>
-<ul style="font-size: 0.85rem; color: var(--text-muted); list-style: none; padding: 0;">
-<li><i class="fas fa-plus"></i> Local SEO for location-based turfs</li>
-<li><i class="fas fa-plus"></i> Image Alt Tech &amp; On-page headers</li>
-<li><i class="fas fa-plus"></i> Mobile responsiveness enhancements</li>
-</ul>
+<div class="timeline-node reveal-up">
+<div class="node-meta">
+<span class="node-number">05</span>
+<h3 style="color: var(--cyan-secondary);">VENUS SPORTS</h3>
+<p style="font-size: 0.8rem; font-weight: 700; opacity: 0.6;">SEO / WEBSITE</p>
 </div>
+<div class="node-content glass-card p-4">
+<p style="font-size: 0.95rem; margin-bottom: 1rem;">Football turfs &amp; sports facility discovery optimization. Focus on professional infrastructure bookings.</p>
+<ul style="font-size: 0.85rem; color: var(--text-muted); list-style: none; padding: 0;">
+<li style="margin-bottom: 5px;"><i class="fas fa-check" style="color: var(--cyan-secondary); margin-right: 8px;"></i> Local SEO for location-based sports turfs</li>
+<li style="margin-bottom: 5px;"><i class="fas fa-check" style="color: var(--cyan-secondary); margin-right: 8px;"></i> Image Alt Tech &amp; On-page headers</li>
+</ul>
 </div>
 </div>
 <!-- Project 6 -->
-<div class="glass-card project-card">
-<span class="step-number">06</span>
-<div class="p-4">
-<h3 style="color: var(--cyan-secondary);">MEDILENZ</h3>
-<p class="tag" style="font-size: 0.8rem; opacity: 0.7; margin-bottom: 1rem;">BLOG / BACKLINK</p>
-<p style="font-size: 0.9rem; margin-bottom: 1.5rem;">Healthcare awareness and medical product SEO. Scaling Domain Authority via high-quality medical citations.</p>
-<div class="contributions">
-<h4 style="font-size: 0.9rem; margin-bottom: 0.5rem;">Key Contributions:</h4>
-<ul style="font-size: 0.85rem; color: var(--text-muted); list-style: none; padding: 0;">
-<li><i class="fas fa-plus"></i> Medical-intent long-tail keyword research</li>
-<li><i class="fas fa-plus"></i> Safe anchor text backlink profile</li>
-<li><i class="fas fa-plus"></i> Healthcare blog structure optimization</li>
-</ul>
+<div class="timeline-node reveal-up">
+<div class="node-meta">
+<span class="node-number">06</span>
+<h3 style="color: var(--indigo-primary);">MEDILENZ</h3>
+<p style="font-size: 0.8rem; font-weight: 700; opacity: 0.6;">BLOG / BACKLINK</p>
 </div>
+<div class="node-content glass-card p-4">
+<p style="font-size: 0.95rem; margin-bottom: 1rem;">Healthcare awareness and medical product SEO. Scaling Domain Authority via medical citations.</p>
+<ul style="font-size: 0.85rem; color: var(--text-muted); list-style: none; padding: 0;">
+<li style="margin-bottom: 5px;"><i class="fas fa-check" style="color: var(--indigo-primary); margin-right: 8px;"></i> Medical-intent long-tail keyword research</li>
+<li style="margin-bottom: 5px;"><i class="fas fa-check" style="color: var(--indigo-primary); margin-right: 8px;"></i> Safe anchor text backlink profile</li>
+</ul>
 </div>
 </div>
 <!-- Project 7 -->
-<div class="glass-card project-card">
-<span class="step-number">07</span>
-<div class="p-4">
+<div class="timeline-node reveal-up">
+<div class="node-meta">
+<span class="node-number">07</span>
 <h3 style="color: var(--cyan-secondary);">SEVEN HILLS</h3>
-<p class="tag" style="font-size: 0.8rem; opacity: 0.7; margin-bottom: 1rem;">SEO / WEBSITE</p>
-<p style="font-size: 0.9rem; margin-bottom: 1.5rem;">Hospitality SEO for tourism and event facilities. Driving organic bookings through experiential content.</p>
-<div class="contributions">
-<h4 style="font-size: 0.9rem; margin-bottom: 0.5rem;">Key Contributions:</h4>
-<ul style="font-size: 0.85rem; color: var(--text-muted); list-style: none; padding: 0;">
-<li><i class="fas fa-plus"></i> Booking page intent-alignment</li>
-<li><i class="fas fa-plus"></i> Hospitality-focused metadata strategy</li>
-<li><i class="fas fa-plus"></i> Local tourism citation management</li>
-</ul>
+<p style="font-size: 0.8rem; font-weight: 700; opacity: 0.6;">SEO / WEBSITE</p>
 </div>
+<div class="node-content glass-card p-4">
+<p style="font-size: 0.95rem; margin-bottom: 1rem;">Hospitality SEO for tourism and event facilities. Driving organic bookings via experiential content.</p>
+<ul style="font-size: 0.85rem; color: var(--text-muted); list-style: none; padding: 0;">
+<li style="margin-bottom: 5px;"><i class="fas fa-check" style="color: var(--cyan-secondary); margin-right: 8px;"></i> Booking page intent-alignment</li>
+<li style="margin-bottom: 5px;"><i class="fas fa-check" style="color: var(--cyan-secondary); margin-right: 8px;"></i> Hospitality metadata strategy</li>
+</ul>
 </div>
 </div>
 <!-- Project 8 -->
-<div class="glass-card project-card">
-<span class="step-number">08</span>
-<div class="p-4">
-<h3 style="color: var(--cyan-secondary);">PRASHNA KUNDLI</h3>
-<p class="tag" style="font-size: 0.8rem; opacity: 0.7; margin-bottom: 1rem;">SEO / WEBSITE</p>
-<p style="font-size: 0.9rem; margin-bottom: 1.5rem;">Global SEO for astrological consultation and horoscope forecasting. Focused on authority distribution across predictions.</p>
-<div class="contributions">
-<h4 style="font-size: 0.9rem; margin-bottom: 0.5rem;">Key Contributions:</h4>
-<ul style="font-size: 0.85rem; color: var(--text-muted); list-style: none; padding: 0;">
-<li><i class="fas fa-plus"></i> Indexing logic for dynamic horoscopes</li>
-<li><i class="fas fa-plus"></i> Astrology long-tail keyword targeting</li>
-<li><i class="fas fa-plus"></i> Internal linking for page authority flow</li>
-</ul>
+<div class="timeline-node reveal-up">
+<div class="node-meta">
+<span class="node-number">08</span>
+<h3 style="color: var(--indigo-primary);">PRASHNA KUNDLI</h3>
+<p style="font-size: 0.8rem; font-weight: 700; opacity: 0.6;">SEO / WEBSITE</p>
 </div>
+<div class="node-content glass-card p-4">
+<p style="font-size: 0.95rem; margin-bottom: 1rem;">Global SEO for astrological consultation and horoscope forecasting. Authority distribution across predictions.</p>
+<ul style="font-size: 0.85rem; color: var(--text-muted); list-style: none; padding: 0;">
+<li style="margin-bottom: 5px;"><i class="fas fa-check" style="color: var(--indigo-primary); margin-right: 8px;"></i> Indexing logic for dynamic horoscopes</li>
+<li style="margin-bottom: 5px;"><i class="fas fa-check" style="color: var(--indigo-primary); margin-right: 8px;"></i> Astrology long-tail keyword targeting</li>
+</ul>
 </div>
 </div>
 <!-- Project 9 -->
-<div class="glass-card project-card">
-<span class="step-number">09</span>
-<div class="p-4">
+<div class="timeline-node reveal-up">
+<div class="node-meta">
+<span class="node-number">09</span>
 <h3 style="color: var(--cyan-secondary);">CARGUROO</h3>
-<p class="tag" style="font-size: 0.8rem; opacity: 0.7; margin-bottom: 1rem;">SEO / WEBSITE</p>
-<p style="font-size: 0.9rem; margin-bottom: 1.5rem;">Mobile mechanic and roadside assistance SEO. Dominating local emergency repair search terms.</p>
-<div class="contributions">
-<h4 style="font-size: 0.9rem; margin-bottom: 0.5rem;">Key Contributions:</h4>
-<ul style="font-size: 0.85rem; color: var(--text-muted); list-style: none; padding: 0;">
-<li><i class="fas fa-plus"></i> Emergency service intent-mapping</li>
-<li><i class="fas fa-plus"></i> Local Maps &amp; GMB dominance</li>
-<li><i class="fas fa-plus"></i> Fast-loading diagnostic results UI</li>
-</ul>
+<p style="font-size: 0.8rem; font-weight: 700; opacity: 0.6;">SEO / WEBSITE</p>
 </div>
+<div class="node-content glass-card p-4">
+<p style="font-size: 0.95rem; margin-bottom: 1rem;">Mobile mechanic and roadside assistance SEO. Dominating local emergency repair search terms.</p>
+<ul style="font-size: 0.85rem; color: var(--text-muted); list-style: none; padding: 0;">
+<li style="margin-bottom: 5px;"><i class="fas fa-check" style="color: var(--cyan-secondary); margin-right: 8px;"></i> Emergency service intent-mapping</li>
+<li style="margin-bottom: 5px;"><i class="fas fa-check" style="color: var(--cyan-secondary); margin-right: 8px;"></i> Local Maps &amp; GMB dominance</li>
+</ul>
 </div>
 </div>
 <!-- Project 10 -->
-<div class="glass-card project-card">
-<span class="step-number">10</span>
-<div class="p-4">
-<h3 style="color: var(--cyan-secondary);">AIIM HOSPITAL</h3>
-<p class="tag" style="font-size: 0.8rem; opacity: 0.7; margin-bottom: 1rem;">SEO / WEBSITE</p>
-<p style="font-size: 0.9rem; margin-bottom: 1.5rem;">Comprehensive SEO for Asian Institute of Infertility Management. Ranking for high-intent fertility treatment terms in Indore.</p>
-<div class="contributions">
-<h4 style="font-size: 0.9rem; margin-bottom: 0.5rem;">Key Contributions:</h4>
+<div class="timeline-node reveal-up">
+<div class="node-meta">
+<span class="node-number">10</span>
+<h3 style="color: var(--indigo-primary);">AIIM HOSPITAL</h3>
+<p style="font-size: 0.8rem; font-weight: 700; opacity: 0.6;">SEO / WEBSITE</p>
+</div>
+<div class="node-content glass-card p-4">
+<p style="font-size: 0.95rem; margin-bottom: 1rem;">Comprehensive SEO for Asian Institute of Infertility Management. Ranking fertility treatment terms.</p>
 <ul style="font-size: 0.85rem; color: var(--text-muted); list-style: none; padding: 0;">
-<li><i class="fas fa-plus"></i> Specialized IVF/IUI treatment SEO</li>
-<li><i class="fas fa-plus"></i> Doctor profile &amp; Trust (E-E-A-T) creation</li>
-<li><i class="fas fa-plus"></i> Regional search visibility for fertility centers</li>
+<li style="margin-bottom: 5px;"><i class="fas fa-check" style="color: var(--indigo-primary); margin-right: 8px;"></i> Specialized IVF/IUI treatment SEO</li>
+<li style="margin-bottom: 5px;"><i class="fas fa-check" style="color: var(--indigo-primary); margin-right: 8px;"></i> Regional search visibility for fertility</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
-</div>
 </section>
-<!-- Education Section -->
-<section class="education-section" style="padding: 100px 0;">
+<!-- Skill Stack & Education (Condensed) -->
+<section class="about-details" style="padding: 100px 0;">
 <div class="container">
-<div class="section-header text-center reveal-up">
-<span class="badge">Academics</span>
-<h2>Educational Foundation</h2>
+<div class="grid-2 reveal-up">
+<div class="glass-card p-5">
+<h3 style="margin-bottom: 1.5rem; color: var(--cyan-secondary);">Technical Skill Stack</h3>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.9rem;">
+<div>- On-Page &amp; Off-Page SEO</div>
+<div>- Technical SEO Audits</div>
+<div>- Keyword &amp; Competitor Analysis</div>
+<div>- WordPress &amp; Shopify Dev</div>
+<div>- Local &amp; GEO SEO</div>
+<div>- Tracking &amp; Analytics</div>
 </div>
-<div class="grid-3 reveal-up">
-<div class="glass-card p-4 text-center">
-<i class="fas fa-university" style="font-size: 1.5rem; color: var(--cyan-secondary); margin-bottom: 1rem; display: block;"></i>
-<h4 style="margin-bottom: 0.5rem;">B.COM</h4>
+</div>
+<div class="glass-card p-5">
+<h3 style="margin-bottom: 1.5rem; color: var(--purple-accent);">Education</h3>
+<div style="display: flex; flex-direction: column; gap: 1.5rem;">
+<div>
+<h4 style="font-size: 1rem; margin-bottom: 0.2rem;">Bachelor of Commerce</h4>
 <p style="font-size: 0.85rem; color: var(--text-muted);">DAVV University</p>
 </div>
-<div class="glass-card p-4 text-center">
-<i class="fas fa-graduation-cap" style="font-size: 1.5rem; color: var(--cyan-secondary); margin-bottom: 1rem; display: block;"></i>
-<h4 style="margin-bottom: 0.5rem;">HIGHER SECONDARY</h4>
-<p style="font-size: 0.85rem; color: var(--text-muted);">Holly Cross School</p>
+<div>
+<h4 style="font-size: 1rem; margin-bottom: 0.2rem;">Higher Secondary School</h4>
+<p style="font-size: 0.85rem; color: var(--text-muted);">Holly Cross Higher Secondary School</p>
 </div>
-<div class="glass-card p-4 text-center">
-<i class="fas fa-school" style="font-size: 1.5rem; color: var(--cyan-secondary); margin-bottom: 1rem; display: block;"></i>
-<h4 style="margin-bottom: 0.5rem;">HIGHER SCHOOL</h4>
-<p style="font-size: 0.85rem; color: var(--text-muted);">Delhi International School</p>
+</div>
 </div>
 </div>
 </div>
 </section>
-<!-- CTA Section -->
-
 <!-- Footer -->
 
-<section class="cta-section reveal-up" id="cta">
-<div class="container text-center">
-<h2 class="cta-title">Connect with Bhakti Jain</h2>
-<p class="cta-subtitle">Let's discuss how we can scale your business through technical SEO and elite web development.</p>
-<div class="cta-btns">
-<a class="btn btn-primary" href="mailto:bhaktijaindm@gmail.com">bhaktijaindm@gmail.com</a>
-<a class="btn btn-outline" href="tel:9111741087">+91 9111741087</a>
-</div>
-</div>
-</section><footer class="footer">
+<footer class="footer">
 <div class="container footer-grid">
-<div class="footer-brand" style="text-align: center;">
-<a class="logo" href="/" style="margin-bottom: 1.5rem; display: inline-block;">
+<div class="footer-brand">
+<a class="logo" href="/" style="margin-bottom: 1rem; display: inline-block;">
 <img alt="BJ Logo" src="/src/logo.png"/>
 </a>
-<p>Professional SEO Expert &amp; Developer specialized in data-led growth and premium UI/UX design.</p>
-</div>
-<!-- Links consolidated for brevity as requested by site-wide cleanup patterns -->
-<div class="footer-links">
-<h4>Navigate</h4>
-<ul>
-<li><a href="/">Home</a></li>
-<li><a href="/services">Services</a></li>
-<li><a href="/case-studies">Projects</a></li>
-<li><a href="/blog">Insights</a></li>
-</ul>
+<p>Building high-performance, search-optimized websites that convert.</p>
 </div>
 <div class="footer-links">
-<h4>Connect</h4>
-<ul style="margin-bottom: 1rem;">
-<li style="margin-bottom: 0.5rem;"><a href="mailto:bhaktijaindm@gmail.com"><i class="fas fa-envelope"></i> bhaktijaindm@gmail.com</a></li>
-<li style="margin-bottom: 0.8rem;"><a href="tel:9111741087"><i class="fas fa-phone-alt"></i> 9111741087</a></li>
+<h4>Direct Contact</h4>
+<ul style="color: var(--text-muted); font-size: 0.9rem;">
+<li style="margin-bottom: 0.5rem;"><i class="fas fa-envelope"></i> bhaktijaindm@gmail.com</li>
+<li style="margin-bottom: 0.5rem;"><i class="fas fa-phone"></i> +91 9111741087</li>
 </ul>
-<div style="display: flex; gap: 10px; justify-content: flex-start;">
+</div>
+<div class="footer-links" style="text-align: right;">
 <a class="social-btn" href="https://www.linkedin.com/in/bhakti-jain-2599263a9/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
 <a class="social-btn whatsapp" href="https://wa.me/919111741087" target="_blank"><i class="fab fa-whatsapp"></i></a>
 </div>
 </div>
-</div>
 <div class="footer-bottom">
 <div class="footer-giant-wrapper">
-<h2 class="giant-text reveal-stroke" id="giantTextLogo">SEO EXPERT</h2>
-</div>
-<div class="container" style="text-align: center; margin-bottom: 1rem; color: var(--text-muted);">
-<p>&copy; 2025 Portfolio. All rights reserved.</p>
+<h2 class="giant-text reveal-stroke">SEO EXPERT</h2>
 </div>
 </div>
 </footer></main>
@@ -369,6 +307,6 @@
 
 <button class="floating-service-btn" id="serviceSwitcher" onclick="toggleService()">
 <i class="fas fa-layer-group"></i>
-<span>Move to Dashboard</span>
+<span>Explore SEO</span>
 </button><script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script><script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script><script defer="" src="/src/main.js"></script></body>
 </html>
