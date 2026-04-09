@@ -2269,18 +2269,25 @@ body.user-website .service-website-content {
 .workflow-steps::after {
     content: '';
     position: absolute;
-    top: 50%;
+    top: 0;
     left: 5%;
-    right: 5%;
+    width: 90%;
     height: 2px;
-    background: linear-gradient(90deg,
-        transparent 0%,
-        var(--indigo-primary) 30%,
-        var(--cyan-secondary) 70%,
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--indigo-primary) 30%, 
+        var(--cyan-secondary) 70%, 
         transparent 100%
     );
     z-index: 1;
-    opacity: 0.2;
+    opacity: 0.3;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.workflow-section.reveal-up .workflow-steps::after {
+    transform: scaleX(1);
 }
 
 @media (max-width: 1100px) {
