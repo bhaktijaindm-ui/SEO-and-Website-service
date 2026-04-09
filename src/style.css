@@ -3544,7 +3544,7 @@ body.user-website .footer-logo-brand span {
 
 /* Footer Improvements */
 .footer {
-    padding: 100px 0 60px;
+    padding: 100px 0 150px;
     background: var(--bg-deep);
     border-top: 1px solid rgba(255, 255, 255, 0.03);
 }
