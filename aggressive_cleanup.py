@@ -1,60 +1,99 @@
 import os
-import re
+from bs4 import BeautifulSoup
 
-def clean_file(filepath):
-    if not os.path.exists(filepath):
-        print(f"File {filepath} not found.")
-        return
-    
-    with open(filepath, "r", encoding="utf-8") as f:
-        content = f.read()
+def aggressive_fix(filepath):
+    print(f"Aggressive fix for {filepath}...")
+    with open(filepath, 'r', encoding='utf-8') as f:
+        html = f.read()
 
-    # 1. Aggressive line cleanup (remove all triple or more newlines)
-    content = re.sub(r'\n\s*\n\s*\n+', '\n\n', content)
-    
-    # 2. Remove trailing whitespace
-    content = "\n".join([line.rstrip() for line in content.splitlines()])
-    
-    # 3. Optimize Scripts (add defer, move to near body)
-    if 'gsap' in content:
-        content = content.replace('<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"', '<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer')
-        content = content.replace('<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"', '<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer')
-    content = content.replace('<script src="/src/main.js"', '<script src="/src/main.js" defer')
+    soup = BeautifulSoup(html, 'html.parser')
 
-    # 4. Image lazy loading for non-logo images
-    def add_lazy(match):
-        img_tag = match.group(0)
-        if 'loading="lazy"' in img_tag or 'logo' in img_tag.lower():
-            return img_tag
-        return img_tag.replace('<img ', '<img loading="lazy" ')
-    
-    content = re.sub(r'<img [^>]+>', add_lazy, content)
+    # 1. Remove all iterations of contact-cta
+    for s in soup.find_all('section', class_='contact-cta'):
+        s.decompose()
 
-    # 5. Fix common alt tag issues (ensure all images have alt)
-    def fix_alt(match):
-        img_tag = match.group(0)
-        if 'alt="' not in img_tag:
-            return img_tag.replace('<img ', '<img alt="Premium SEO or Design Case Study" ')
-        return img_tag
+    # 2. Identify and handle FAQ sections (different classes used)
+    # We want to keep only the one with 'seo-faq-section' content if possible
+    faqs = soup.find_all('section', class_=lambda x: x and ('faq' in x))
+    if len(faqs) > 1:
+        # Prefer the one with actual content (faq-item)
+        content_faq = None
+        for f in faqs:
+            if f.find(class_='faq-item'):
+                if not content_faq:
+                    content_faq = f
+                else:
+                    f.decompose() # Remove extra ones with content
+            else:
+                f.decompose() # Remove empty ones
         
-    content = re.sub(r'<img [^>]+>', fix_alt, content)
+        # If we found one with content, move it to the correct place later
+        # If we didn't find one with content, keep the first one and we'll fix it
+        if not content_faq and faqs:
+             content_faq = faqs[0]
+    
+    # 3. Handle CTA sections
+    ctas = soup.find_all('section', class_='cta-section')
+    if len(ctas) > 1:
+        keep_cta = ctas[0]
+        for c in ctas[1:]:
+            c.decompose()
+    
+    # 4. Handle Footers
+    footers = soup.find_all('footer')
+    if len(footers) > 1:
+        keep_footer = footers[0]
+        for f in footers[1:]:
+            f.decompose()
 
-    with open(filepath, "w", encoding="utf-8") as f:
-        f.write(content)
-    print(f"Aggressively optimized {filepath}.")
+    # Re-order and standardize
+    main_tag = soup.find('main')
+    if not main_tag:
+        main_tag = soup.body
 
-all_files = [f for f in os.listdir(".") if f.endswith(".html")]
+    # Final order: FAQ -> CTA -> Footer
+    faq = soup.find('section', class_=lambda x: x and ('faq' in x))
+    cta = soup.find('section', class_='cta-section')
+    footer = soup.find('footer')
 
-for f in all_files:
-    clean_file(f)
+    if faq:
+        faq.extract()
+        main_tag.append(faq)
+    if cta:
+        cta.extract()
+        main_tag.append(cta)
+    if footer:
+        footer.extract()
+        main_tag.append(footer)
 
-# Also clean JS and CSS
-for f in ["src/main.js", "src/style.css"]:
-    if os.path.exists(f):
-        with open(f, "r", encoding="utf-8") as file:
-            c = file.read()
-        c = re.sub(r'\n\s*\n\s*\n+', '\n\n', c)
-        c = "\n".join([line.rstrip() for line in c.splitlines()])
-        with open(f, "w", encoding="utf-8") as file:
-            file.write(c)
-        print(f"Cleaned {f}.")
+    # Floating button
+    btn = soup.find('button', id='serviceSwitcher')
+    if btn:
+        btn.extract()
+        soup.body.append(btn)
+
+    # Scripts
+    scripts = soup.find_all('script')
+    for s in scripts:
+        s.extract()
+        soup.body.append(s)
+
+    # Clean up empty sections if any were left by mistake
+    for s in soup.find_all('section'):
+        if not s.get_text(strip=True) and not s.find('img') and not s.find('div'):
+             s.decompose()
+
+    with open(filepath, 'w', encoding='utf-8') as f:
+        f.write(soup.decode(formatter="html"))
+
+def main():
+    files = [f for f in os.listdir('.') if f.endswith('.html')]
+    for file in files:
+        if file == 'index.html' or file.startswith('case-') or file == 'blog.html' or file == 'services.html' or file == 'pricing.html' or file == 'about.html':
+             try:
+                aggressive_fix(file)
+             except Exception as e:
+                print(f"Error fixing {file}: {e}")
+
+if __name__ == "__main__":
+    main()
