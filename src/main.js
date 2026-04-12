@@ -54,11 +54,14 @@ window.applyServiceGlobal = (service) => {
     document.body.classList.add(`user-${service}`);
 
     // --- DYNAMIC TITLE UPDATE ---
-    const currentTitle = document.title;
-    if (service === 'website' && !currentTitle.toLowerCase().includes('web design')) {
-        document.title = currentTitle.replace(/SEO/i, 'Web Design');
-    } else if (service === 'seo' && !currentTitle.toLowerCase().includes('seo')) {
-        document.title = currentTitle.replace(/Web Design/i, 'SEO');
+    if (service === 'website') {
+        document.title = 'Best Web Development Services | Fast, Beautiful Websites';
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', 'Looking for expert web development services? We build fast, mobile-friendly, and SEO-ready websites that turn visitors into customers. Get a free strategy call today!');
+    } else {
+        document.title = 'Best SEO Company | Real Google Rankings That Grow Your Business';
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', 'Expert SEO services to help your business rank higher and grow faster. No jargon, just real results. Book your free strategy call today!');
     }
 
     // 3. Update dynamic text elements
