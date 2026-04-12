@@ -53,6 +53,14 @@ window.applyServiceGlobal = (service) => {
     // 2. Add the new service class
     document.body.classList.add(`user-${service}`);
 
+    // --- DYNAMIC TITLE UPDATE ---
+    const currentTitle = document.title;
+    if (service === 'website' && !currentTitle.toLowerCase().includes('web design')) {
+        document.title = currentTitle.replace(/SEO/i, 'Web Design');
+    } else if (service === 'seo' && !currentTitle.toLowerCase().includes('seo')) {
+        document.title = currentTitle.replace(/Web Design/i, 'SEO');
+    }
+
     // 3. Update dynamic text elements
     const logoText = document.getElementById('logoText');
     const footerLogoText = document.getElementById('footerLogoText');
@@ -65,7 +73,15 @@ window.applyServiceGlobal = (service) => {
         if (giantTextLogo) giantTextLogo.textContent = 'WEBDESIGN EXPERT';
         if (switchBtn) {
             const span = switchBtn.querySelector('span');
-            if (span) span.innerHTML = 'Move To SEO';
+            const icon = switchBtn.querySelector('i') || document.createElement('i');
+            icon.className = 'fas fa-chart-line';
+            if (span) {
+                span.innerHTML = 'Move To SEO';
+            } else {
+                switchBtn.innerHTML = '';
+                switchBtn.appendChild(icon);
+                switchBtn.innerHTML += ' Move To SEO';
+            }
         }
     } else {
         if (logoText) logoText.textContent = 'SEO';
@@ -73,7 +89,15 @@ window.applyServiceGlobal = (service) => {
         if (giantTextLogo) giantTextLogo.textContent = 'SEO EXPERT';
         if (switchBtn) {
             const span = switchBtn.querySelector('span');
-            if (span) span.innerHTML = 'Move To Web';
+            const icon = switchBtn.querySelector('i') || document.createElement('i');
+            icon.className = 'fas fa-layer-group';
+            if (span) {
+                span.innerHTML = 'Move To Web';
+            } else {
+                switchBtn.innerHTML = '';
+                switchBtn.appendChild(icon);
+                switchBtn.innerHTML += ' Move To Web';
+            }
         }
     }
 
@@ -88,10 +112,6 @@ window.applyServiceGlobal = (service) => {
  * Handle Service Selection
  */
 window.selectService = (service) => {
-    if (service === 'website') {
-        alert('Web Design services are coming soon!');
-        return;
-    }
     localStorage.setItem('selectedService', service);
     const modal = document.getElementById('serviceModal');
 
@@ -154,12 +174,11 @@ const injectServiceModal = () => {
                         <p>Dominating organic search & technical excellence.</p>
                         <span class="btn btn-outline btn-sm">Explore SEO Dashboard</span>
                     </div>
-                    <div class="option-card glass-card reveal-up coming-soon" onclick="alert('Web Design services are coming soon!')" style="cursor: not-allowed; opacity: 0.8; position: relative;">
-                        <span style="position: absolute; top: 10px; right: 10px; background: var(--purple-accent); color: white; padding: 4px 10px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 10px rgba(168, 85, 247, 0.3);">Coming Soon</span>
+                    <div class="option-card glass-card reveal-up" onclick="selectService('website')">
                         <div class="option-icon"><i class="fas fa-laptop-code" style="color: var(--purple-accent);"></i></div>
                         <h3>Web Design</h3>
                         <p>Building premium, high-performance websites & UI/UX.</p>
-                        <span class="btn btn-primary btn-sm" style="background: rgba(168, 85, 247, 0.2); border: 1px solid var(--purple-accent); color: var(--purple-accent); cursor: not-allowed;">Coming Soon</span>
+                        <span class="btn btn-primary btn-sm" style="background: rgba(168, 85, 247, 0.2); border: 1px solid var(--purple-accent); color: var(--purple-accent);">Explore Web Dashboard</span>
                     </div>
                 </div>
             </div>
@@ -305,7 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Map common pages to their SEO/Web aliases
-        let page = href.replace('.html', '');
+        let page = href.replace('.html', '').replace(/^\//, ''); // Strip leading slash
         if (page === 'case-studies') page = 'casestudies';
         if (page === 'about') page = 'aboutus';
 
@@ -425,11 +444,6 @@ document.addEventListener('DOMContentLoaded', () => {
 window.toggleService = () => {
     const current = localStorage.getItem('selectedService') || 'seo';
     const next = current === 'seo' ? 'website' : 'seo';
-
-    if (next === 'website') {
-        alert('Website Design Dashboard is Coming Soon!');
-        return;
-    }
 
     // Determine the base URL for the selected service
     const baseUrl = next === 'website' ? '/web-design-service' : '/seo-service';
